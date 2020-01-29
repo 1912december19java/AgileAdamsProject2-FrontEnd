@@ -1,14 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
+import { LogoutComponentComponent } from './logout-component/logout-component.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+
 
 
 const routes: Routes = [
   {
-    path: "login",
-    component: LoginComponent
-  }
+    path: 'logout',
+    component: LogoutComponentComponent,
+  },
+
+  {
+    path: 'search-bar',
+    component: SearchBarComponent,
+  },
+  
 ];
+
+
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
