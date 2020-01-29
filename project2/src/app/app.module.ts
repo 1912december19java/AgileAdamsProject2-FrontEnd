@@ -14,7 +14,6 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { CloudComponentComponent } from './cloud-component/cloud-component.component';
 import { TrainerHomepageComponent } from './trainer-homepage/trainer-homepage.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
