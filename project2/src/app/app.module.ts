@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LogoutComponentComponent } from './logout-component/logout-component.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     NavbarComponent,
     LogoutComponentComponent,
     SearchBarComponent,
+    LoginComponent,
     
   ],
   imports: [
