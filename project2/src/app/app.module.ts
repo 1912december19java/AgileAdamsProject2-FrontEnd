@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { CloudComponentComponent } from './cloud-component/cloud-component.component';
+import { AddCommentComponent } from './add-comment/add-comment.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CloudComponentComponent } from './cloud-component/cloud-component.compo
     TrainerHomeComponent,
     UserHomeComponent,
     CloudComponentComponent,
+    AddCommentComponent,
   ],
   imports: [
     BrowserModule,
