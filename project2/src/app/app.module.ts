@@ -5,10 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TagCloudModule } from 'angular-tag-cloud-module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LogoutComponentComponent } from './logout-component/logout-component.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
+    LogoutComponentComponent,
+    SearchBarComponent,
     
   ],
   imports: [
