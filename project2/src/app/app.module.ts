@@ -9,6 +9,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LogoutComponentComponent } from './logout-component/logout-component.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { LoginComponent } from './login/login.component';
+import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
+import { UserHomeComponent } from './user-home/user-home.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { LoginComponent } from './login/login.component';
     LogoutComponentComponent,
     SearchBarComponent,
     LoginComponent,
-    
+    TrainerHomeComponent,
+    UserHomeComponent,
   ],
   imports: [
     BrowserModule,
