@@ -15,6 +15,8 @@ import { CloudComponentComponent } from './cloud-component/cloud-component.compo
 import { TrainerHomepageComponent } from './trainer-homepage/trainer-homepage.component';
 import { CommentContainerComponent } from './comment-container/comment-container.component';
 import { CommentComponent } from './comments/comment-component/comment.component';
+import { TrainersListComponent } from './trainers-list/trainers-list.component';
+import { TrainerCardComponent } from './trainer-card/trainer-card.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { CommentComponent } from './comments/comment-component/comment.component
     TrainerHomepageComponent,
     CommentContainerComponent,
     CommentComponent,
+    TrainersListComponent,
+    TrainerCardComponent,
   ],
   imports: [
     BrowserModule,
