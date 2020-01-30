@@ -1,0 +1,28 @@
+<p>add-comment works!</p>
+
+
+<form #commentForm="ngForm">
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="trainer_id" class="control-label">Trainer Id</label>
+            <input class="form-control" name="trainer_id" [ngModel]="comment.trainer_id" type="text"
+                #idControl="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="user_id" class="control-label">User Id</label>
+            <input class="form-control" name="user_id" [ngModel]="comment.user_id" type="text" #idControl="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="date_posted" class="control-label">Date</label>
+            <input class="form-control" name="date_posted" [ngModel]="comment.date_posted | date" type="text"
+                #idControl="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="comment_text" class="control-label">Comment</label>
+            <textarea rows="4" cols="12" class="form-control" name="comment_text" [(ngModel)]="comment.comment_text"
+                #idControl="ngModel">
+            </textarea>
+        </div>
+    </div>
+    <button class="btn btn-primary" (click)="saveComment()">Submit</button>
+</form>
