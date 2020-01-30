@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { CloudComponentComponent } from './cloud-component/cloud-component.component';
+import { UserPageComponent} from './user-page/user-page.component';
 import { TrainerHomepageComponent } from './trainer-homepage/trainer-homepage.component';
 import { CommentContainerComponent } from './comment-container/comment-container.component';
 import { CommentComponent } from './comments/comment-component/comment.component';
@@ -28,6 +29,7 @@ import { TrainerCardComponent } from './trainer-card/trainer-card.component';
     TrainerHomeComponent,
     UserHomeComponent,
     CloudComponentComponent,
+    UserPageComponent
     TrainerHomepageComponent,
     CommentContainerComponent,
     CommentComponent,
