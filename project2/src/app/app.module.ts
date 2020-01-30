@@ -29,7 +29,7 @@ import { TrainerCardComponent } from './trainer-card/trainer-card.component';
     TrainerHomeComponent,
     UserHomeComponent,
     CloudComponentComponent,
-    UserPageComponent
+    UserPageComponent,
     TrainerHomepageComponent,
     CommentContainerComponent,
     CommentComponent,
