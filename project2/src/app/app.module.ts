@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { CloudComponentComponent } from './cloud-component/cloud-component.component';
+import { TrainersListComponent } from './trainers-list/trainers-list.component';
+import { TrainerCardComponent } from './trainer-card/trainer-card.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { CloudComponentComponent } from './cloud-component/cloud-component.compo
     TrainerHomeComponent,
     UserHomeComponent,
     CloudComponentComponent,
+    TrainersListComponent,
+    TrainerCardComponent,
   ],
   imports: [
     BrowserModule,
