@@ -22,6 +22,7 @@ import { CommentContainerComponent } from './comment-container/comment-container
 import { CommentComponent } from './comments/comment-component/comment.component';
 import { TrainersListComponent } from './trainers-list/trainers-list.component';
 import { TrainerCardComponent } from './trainer-card/trainer-card.component';
+import { AddWordComponent } from './add-word/add-word.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { TrainerCardComponent } from './trainer-card/trainer-card.component';
     CommentComponent,
     TrainersListComponent,
     TrainerCardComponent,
+    AddWordComponent,
   ],
   imports: [
     BrowserModule,
