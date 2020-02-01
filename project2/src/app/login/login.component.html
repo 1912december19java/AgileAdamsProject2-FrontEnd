@@ -27,3 +27,10 @@
     </select>
     <button (click)="processLogin()">Submit</button>
 </div>
+
+
+<div>
+    <ul *ngFor="let user of users">
+        <li>{{user.username}} {{user.lastName}} {{user.firstName}}</li>
+    </ul>
+</div>
