@@ -11,8 +11,9 @@ export class Trainer {
     //         this.password = tPass;
     //     }
 
-    constructor(
-         tUser : string, tPass: string, tLoc?: string, tCurr?: string, ){
+    constructor(fName?: string, lName?: string, tLoc?: string, tCurr?: string, tUser? : string, tPass?: string ){
+        this.firstName = fName;
+        this.lastName = lName;
         this.username = tUser;
         this.password = tPass;
         this.location = tLoc;
