@@ -1,9 +1,10 @@
 export class User{
-    username: string;
-    passcode: string;
+    
     firstName: string;
     lastName: string;
-    picture: string;
+    username?: string;
+    passcode?: string;
+    picture?: string;
 }
 
 export const USER_MOCKS = [
