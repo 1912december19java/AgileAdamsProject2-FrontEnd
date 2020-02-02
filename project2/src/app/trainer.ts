@@ -1,14 +1,24 @@
 export class Trainer {
-    // firstName : string;
-    // lastName : string;
-    // location : string;
-    // curriculum : string;
+    firstName : string;
+    lastName : string;
+    location : string;
+    curriculum : string;
+
     username: string;
     password: string;
-    constructor(tUser : string, tPass: string){
-            this.username = tUser;
-            this.password = tPass;
-        }
+    // constructor(tUser : string, tPass: string){
+    //         this.username = tUser;
+    //         this.password = tPass;
+    //     }
+
+    constructor(
+         tUser : string, tPass: string, tLoc?: string, tCurr?: string, ){
+        this.username = tUser;
+        this.password = tPass;
+        this.location = tLoc;
+        this.curriculum = tCurr;
+    }
+    
     // constructor(newFirstName : string, newLastName : string, newLocation : string, newCurriculum : string,tUser : string, tPass: string){
     //     this.firstName = newFirstName;
     //     this.lastName = newLastName;
