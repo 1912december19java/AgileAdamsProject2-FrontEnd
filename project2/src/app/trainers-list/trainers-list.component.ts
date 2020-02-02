@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Trainer } from '../trainer';
-import { TrainerService } from '../trainer.service';
+// import { TrainerService } from '../trainer.service';
 
 @Component({
   selector: 'app-trainers-list',
@@ -20,6 +20,8 @@ export class TrainersListComponent implements OnInit {
   }
 
   addNewTrainer(newFirstName : string, newLastName : string, newLocation : string, newCurriculum : string){
-    this.trainerArray.push(new Trainer(newFirstName , newLastName, newLocation, newCurriculum ));
+    // this.trainerArray.push(new Trainer(newFirstName , newLastName, newLocation, newCurriculum ));
+    this.trainerArray.push(new Trainer(newFirstName , newLastName));
+
   }
 }
