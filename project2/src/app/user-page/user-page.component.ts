@@ -8,7 +8,7 @@ import { User } from '../user';
 })
 export class UserPageComponent implements OnInit {
 
-  user: User = {
+  users: User = {
     firstName: "John",
     lastName: "Doe"
   }
