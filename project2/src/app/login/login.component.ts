@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User, USER_MOCKS } from '../user';
+import {AssociateService} from '../associate.service';
 
 @Component({
   selector: 'app-login',
@@ -7,13 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  users: User[] = [];
+
+  constructor(private userService: AssociateService,) { }
 
   ngOnInit() {
+    this.populateUsers();
   }
 
   processLogin(): void {
     alert('login Works');
   }
+
+  async populateUsers() {
+    this.users = await this.userService.promiseGetAllUsers();
+  }
+
 
 }
