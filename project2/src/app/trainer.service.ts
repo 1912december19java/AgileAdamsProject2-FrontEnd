@@ -1,6 +1,9 @@
+
 // import { Injectable } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
 // import { Trainer } from './trainer'
+
+
 
 
 // @Injectable({
@@ -13,6 +16,7 @@
 
 //   public connectionUrl : string = "http://localhost:8080/Project2/trainers";
 //   public trainer : Trainer = new Trainer('','','','');
+
   
 
 //   getAllTrainerInfo() {
