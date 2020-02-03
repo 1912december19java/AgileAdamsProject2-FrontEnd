@@ -33,7 +33,7 @@ export class CloudComponentComponent implements OnInit {
     // ...
   ];
 
-  logClicked(){
+  logClicked( event: any){
     console.log("You clicked the thing");
   }
 
