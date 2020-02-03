@@ -1,0 +1,27 @@
+<form #commentForm="ngForm" class="add_comment_panel">
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="comment_text" class="control-label"><h3>Say Something:</h3></label>
+            <textarea rows="4" cols="12" class="form-control" name="comment_text" [(ngModel)]="comment.comment_text"
+                #idControl="ngModel" placeholder="Enter Comment">
+            </textarea>
+        </div>
+    </div>
+    <button class="btn btn-primary" (click)="saveComment()">Submit</button>
+</form>
+
+<!--
+<div class="form-group">
+    <label for="trainer_id" class="control-label">Trainer Id</label>
+    <input class="form-control" name="trainer_id" [ngModel]="comment.trainer_id" type="text"
+        #idControl="ngModel">
+</div>
+<div class="form-group">
+    <label for="user_id" class="control-label">User Id</label>
+    <input class="form-control" name="user_id" [ngModel]="comment.user_id" type="text" #idControl="ngModel">
+</div>
+<div class="form-group">
+    <label for="date_posted" class="control-label">Date</label>
+    <input class="form-control" name="date_posted" [ngModel]="comment.date_posted | date" type="text"
+        #idControl="ngModel">
+</div> -->

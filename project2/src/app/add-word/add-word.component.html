@@ -1,0 +1,21 @@
+<p>add-word works!</p>
+<div>
+    <form #addWordForm="ngForm">
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="trainer_username" class="control-label">Trainer Username</label>
+                <input class="form-control" name="trainer_username" [ngModel]="word.trainer_username" type="text"
+                    #idControl="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="user_username" class="control-label">User Username</label>
+                <input class="form-control" name="user_username" [ngModel]="word.user_username" type="text" #idControl="ngModel">
+            </div>           
+            <div class="form-group">
+                <label for="word_text" class="control-label">Word </label>
+                <input class="control-label" type="text" name="word_text" [ngModel]=word.word_text #idControl="ngModel">
+            </div>
+        </div>
+        <button class="btn btn-primary" (click)="saveWord()">Submit</button>
+    </form>
+</div>

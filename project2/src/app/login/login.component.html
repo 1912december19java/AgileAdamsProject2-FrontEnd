@@ -1,0 +1,36 @@
+<p>Please select your name and submit to continue</p>
+
+
+<!-- This may be replaced by a user's list from the DB-->
+<div>
+    <select>
+        <option value="aKing">Adam King</option>
+        <option value="jDoe">Jane Doe</option>
+        <option value="aQuesee">Andrew Quesee</option>
+        <option value="jAtkins">Jordan Atkins</option>
+        <option value="dDuck">Donald Duck</option>
+        <option value="mMouse">Mickey Mouse</option>
+        <option value="wWoman">Wonder Woman</option>
+        <option value="bMan">Bat Man</option>
+        <option value="ePhonehome">Et Phonehome</option>
+        <option value="cChocolate">Charlie Chocolate</option>
+        <option value="aDoe">Adam Doe</option>
+        <option value="jKing">Jane King</option>
+        <option value="aAtkins">Andrew Atkins</option>
+        <option value="jBrown">Jordan Brown</option>
+        <option value="dMouse">Donald Mouse</option>
+        <option value="mDuck">Mickey Duck</option>
+        <option value="pSmith">Pam Smith</option>
+        <option value="jWick">John Wick</option>
+        <option value="eMurphy">Eddie Murphy</option>
+        <option value="mElliot">Missy Elliot</option>
+    </select>
+    <button (click)="processLogin()">Submit</button>
+</div>
+
+
+<div>
+    <ul *ngFor="let user of users">
+        <li>{{user.username}} {{user.lastName}} {{user.firstName}}</li>
+    </ul>
+</div>
