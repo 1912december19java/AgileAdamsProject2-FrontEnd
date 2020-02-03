@@ -1,9 +1,11 @@
-<div class="container">
-    <div  class="row grey_panel">
-        <div class="col-md-3 left_panel">
-            <app-user-home></app-user-home>
+<app-navbar></app-navbar>
+<div  class="container">
+    <div  class="row">
+        <div class="col-md-6">
+            <div>First Name: <span>{{users.firstName}}</span></div>
+            <div>Last Name: <span>{{users.lastName}}</span></div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
             <app-trainers-list></app-trainers-list>
         </div>
     </div>

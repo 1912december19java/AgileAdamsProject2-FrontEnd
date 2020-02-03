@@ -1,9 +1,9 @@
-<form #commentForm="ngForm" class="add_comment_panel">
+<form #commentForm="ngForm">
     <div class="panel-body">
         <div class="form-group">
-            <label for="comment_text" class="control-label"><h3>Say Something:</h3></label>
+            <label for="comment_text" class="control-label">Comment</label>
             <textarea rows="4" cols="12" class="form-control" name="comment_text" [(ngModel)]="comment.comment_text"
-                #idControl="ngModel" placeholder="Enter Comment">
+                #idControl="ngModel">
             </textarea>
         </div>
     </div>

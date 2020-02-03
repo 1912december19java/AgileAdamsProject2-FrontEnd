@@ -2,32 +2,21 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 .grey_panel {
-    background-color : rgb(35, 35, 46);
+    background-color : lightgrey;
     box-shadow: 0px 1px 1px black;
-    padding : 0px;
-    margin : 0px;
-    width : 100%;
+    padding : 10px;
+    margin : 1px;
 }
 
 .white_panel {
-    background-color : rgb(82, 82, 82);
+    background-color : white;
     box-shadow: 0px 1px 1px black;
-    padding : 5px;
-    margin : 3px;
-    width : 100%;
-}
-
-.left_panel {
-    background-color : rgb(82, 82, 82);
-    box-shadow: 0px 1px 1px black;
-    padding : 10px;
-    margin-left : 24px;
-    width : 100%;
+    padding : 20px;
+    margin : 1px;
 }
 
 main {
-    background-color : black;
-    text-decoration-color: white;
+    background-color : rgb(184, 79, 79);
 }
 
 .image_size {
@@ -41,13 +30,11 @@ main {
 }
 
 .justify_panel_left{
-    padding-left : 20px;
+    padding-left : 2px;
 }
 
 .italics {
     font-style : italic;
-    font-size : 50%;
-    color : rgb(211, 211, 211);
 }
 
 .fill_height {
@@ -55,42 +42,5 @@ main {
 }
 
 .cloud_component_background {
-    border : 1px dotted grey;
-    border-radius : 5px;
-    width : 97%;
-    margin-top : 10px;
-}
-
-
-.comment_content {
-    padding-left : 20px;
-    padding-right : 20px;
-    padding-top : 5px;
-    padding-bottom : 5px;
-}
-
-.comment_text {
-    border : 1px solid lightgrey;
-    border-radius : 5px;
-    width : 100%;
-    padding : 3px;
-    margin-top : 5px;
-    margin-bottom : 10px;
-}
-
-body {
-    color: white;
-}
-
-.navbar_grey{
-    background-color: rgb(82, 82, 82);;
-}
-
-.add_comment_panel {
-    padding : 5px;
-    margin-left : 10px;
-}
-
-.text-container {
-    margin : 1px;
+    background-image :linear-gradient(pink red);
 }
