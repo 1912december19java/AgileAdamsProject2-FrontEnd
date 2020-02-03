@@ -13,7 +13,7 @@ export class AddCommentComponent implements OnInit {
     trainer_id: 1,
     user_id: 2,
     date_posted: Date.now(),
-    comment_text: "Enter your Comment"
+    comment_text: ""
   };
 
   constructor() { }
@@ -32,7 +32,7 @@ export class AddCommentComponent implements OnInit {
     this.comment.trainer_id = null;
     this.comment.user_id = null;
     this.comment.date_posted = null;
-    this.comment.comment_text = "Enter your Comment";
+    this.comment.comment_text = "";
   }
 
 }

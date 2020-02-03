@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user';
 
 @Component({
   selector: 'app-user-page',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPageComponent implements OnInit {
 
-  users: Object = {
-    userFirstName: "John",
-    userLastName: "Doe"
+  users: User = {
+    firstName: "John",
+    lastName: "Doe"
   }
 
   constructor() { }

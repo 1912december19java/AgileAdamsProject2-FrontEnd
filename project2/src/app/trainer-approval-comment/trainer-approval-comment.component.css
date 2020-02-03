@@ -1,0 +1,9 @@
+.comment-background {
+    background-color : lightgrey;
+    border : 2px solid grey;
+    width : 1000px;
+}
+
+.text-container {
+    margin : 10px;
+}

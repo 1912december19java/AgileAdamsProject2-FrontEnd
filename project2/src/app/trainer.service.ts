@@ -1,36 +1,36 @@
-import { Injectable } from '@angular/core';
-import { Trainer } from './trainer';
-import { HttpClient } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class TrainerService {
+// import { Injectable } from '@angular/core';
+// import { HttpClient } from '@angular/common/http';
+// import { Trainer } from './trainer'
 
-  constructor(private http:HttpClient) { }
 
-  public isLoggedIn: boolean = false;
-  public loggedInTrainer: Trainer = new Trainer('','');
 
-  attemptLogIn(username: string, password: string) {
-    const loggingInAsTrainer = new Trainer(username, password);
-    this.http.post('http://localhost:8081/trainers/login', loggingInAsTrainer)
-        .subscribe((response: boolean)=>{
-          if(response) {
-            this.isLoggedIn = true;
-            this.loggedInTrainer = loggingInAsTrainer;
-          } else {
-            this.isLoggedIn = false;
-            this.loggedInTrainer = new Trainer('','');
-          }
-        });
-  }
 
-  logOut() {
-    this.isLoggedIn = false;
-    this.loggedInTrainer = new Trainer('','');
-  }
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class TrainerService {
+
+
+//   constructor(public http: HttpClient) { }
+
+//   public connectionUrl : string = "http://localhost:8080/Project2/trainers";
+//   public trainer : Trainer = new Trainer('','','','');
 
   
-  
-}
+
+//   getAllTrainerInfo() {
+//     console.log("getAllTrainerInfo()") 
+//     this.http.get(this.connectionUrl)
+//     .subscribe((response: Trainer[])=>{
+
+//       console.log(response);
+//       console.log("test")
+//       // for(let i=0; i<response.length; i++ ){
+//       //   console.log(JSON.parse(response[i]));
+//       // }
+//     })
+//    }
+
+
+// }

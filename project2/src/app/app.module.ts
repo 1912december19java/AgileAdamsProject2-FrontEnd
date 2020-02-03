@@ -23,6 +23,9 @@ import { CommentComponent } from './comments/comment-component/comment.component
 import { TrainersListComponent } from './trainers-list/trainers-list.component';
 import { TrainerCardComponent } from './trainer-card/trainer-card.component';
 import { AddWordComponent } from './add-word/add-word.component';
+import { TestComponent } from './test/test.component';
+import { TrainerApprovalCommentComponent } from './trainer-approval-comment/trainer-approval-comment.component';
+import { TrainerApprovalPageComponent } from './trainer-approval-page/trainer-approval-page.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { AddWordComponent } from './add-word/add-word.component';
     TrainersListComponent,
     TrainerCardComponent,
     AddWordComponent,
+    TestComponent,
+    TrainerApprovalCommentComponent,
+    TrainerApprovalPageComponent,
   ],
   imports: [
     BrowserModule,
