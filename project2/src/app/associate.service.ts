@@ -17,21 +17,27 @@ export class AssociateService {
 
 
   async promiseGetAllUsers(): Promise<User[]> {
-    return await this.http.get<User[]>('http://localhost:8080/Project2/associates/').toPromise();
+    console.log("promiseGetAllUsers()")
+    return await this.http.get<User[]>('http://localhost:8080/Project2/associates/')
+    .toPromise();
+    
   }
 
-  getAllTrainerInfo() {
+  async getAllTrainerInfo(): Promise<Trainer[]> {
     console.log("getAllTrainerInfo()") 
-    this.http.get("http://localhost:8080/Project2/trainers")
-    .subscribe((response: Trainer[])=>{
-      console.log(response);
-      console.log("test")
-    })
+    // this.http.get<Trainer[]("http://localhost:8080/Project2/trainers")
+    // .subscribe((response: Trainer[])=>{
+    //   console.log(response);
+    //   console.log("test")
+    //   return response: Trainer[];
+    // })
+    return await this.http.get<Trainer[]>("http://localhost:8080/Project2/trainers")
+    .toPromise();
    }
 
    attemptLogIn(username: string, password: string, location: string, curriculum: string) {
     const loggingInAsTrainer = new Trainer(username, password, location, curriculum);
-    this.http.post('http://localhost:8081/trainers/login', loggingInAsTrainer)
+    this.http.post('http://localhost:8080/trainers/login', loggingInAsTrainer)
         .subscribe((response: boolean)=>{
           if(response) {
             this.isLoggedIn = true;
