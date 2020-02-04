@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CloudData, CloudOptions } from 'angular-tag-cloud-module';
+import { AssociateService } from '../associate.service';
 
 
 @Component({
@@ -7,7 +8,7 @@ import { CloudData, CloudOptions } from 'angular-tag-cloud-module';
   template: `
   <div>
     <angular-tag-cloud
-      [data]="data"
+      [(data)]="data"
       (clicked)="logClicked($event)"
       [width]="options.width"
       [height]="options.height"
@@ -18,6 +19,7 @@ import { CloudData, CloudOptions } from 'angular-tag-cloud-module';
 })
 export class CloudComponentComponent implements OnInit {
 
+  currentWords : any[];
 
   options: CloudOptions = {
     // if width is between 0 and 1 it will be set to the size of the upper element multiplied by the value 
@@ -37,9 +39,24 @@ export class CloudComponentComponent implements OnInit {
     console.log("You clicked the thing");
   }
 
-  constructor() { }
+  constructor(private httpService : AssociateService) { }
 
   ngOnInit() {
+    this.gatherWords();
+  }
+
+  async gatherWords(){
+    //Hardcode Adam's username aking
+    this.currentWords = await this.httpService.getWordsByTrainer('aking');
+
+    for( let pair of this.currentWords){
+      console.log(`TEXT: ${pair[0]} | WEIGHT: ${pair[1]}`);
+      this.data.push(
+        {text: pair[0], weight: pair[1]}
+      );
+    }
+
+    //console.log(await (await this.httpService.getWordsByTrainer('aking'))[0]);
   }
 
 }
