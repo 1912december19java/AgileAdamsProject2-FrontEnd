@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.populateUsers();
+    
   }
 
   processLogin(): void {
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   async populateUsers() {
     this.users = await this.userService.promiseGetAllUsers();
+    console.log(this.users);
   }
 
 
