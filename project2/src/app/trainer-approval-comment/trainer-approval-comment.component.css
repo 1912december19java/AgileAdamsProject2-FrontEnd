@@ -1,9 +1,24 @@
 .comment-background {
-    background-color : lightgrey;
-    border : 2px solid grey;
-    width : 1000px;
+    background-color : black;
+    border : 3px solid rgb(204, 201, 201);
+    border-radius: 3px;
+    width: 500px;
+    margin-left: 30%;
 }
 
-.text-container {
-    margin : 10px;
+.text-container{
+    text-align: center; 
+    font-family: cursive;
 }
+
+.btn{
+    background-color: black;
+    border : 2px solid rgb(204, 201, 201);
+}
+
+body{
+    background-color: black;
+}
+
+
+
