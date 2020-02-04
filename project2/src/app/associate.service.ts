@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user';
 import { Trainer } from './trainer'
+import { Word } from './word'
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class AssociateService {
   public isLoggedIn: boolean = false;
   // public loggedInTrainer: Trainer = new Trainer('','');
   public loggedInTrainer: Trainer = new Trainer('','','','');
+  public currentWordSet : any[];
 
 
   async promiseGetAllUsers(): Promise<User[]> {
@@ -46,7 +48,10 @@ export class AssociateService {
     this.isLoggedIn = false;
     this.loggedInTrainer = new Trainer('','');
   }
-  
+
+  async getWordsByTrainer(username : string) : Promise<any[]>{
+    return await this.http.get<any[]>(`http://localhost:8080/Project2/words/trainer/wCount/${username}`).toPromise(); 
+  }
   
 }
 
