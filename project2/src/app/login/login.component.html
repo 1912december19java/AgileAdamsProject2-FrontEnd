@@ -1,9 +1,15 @@
-<p>Please select your name and submit to continue</p>
-
-
 <!-- This may be replaced by a user's list from the DB-->
-<div>
-    <select>
+<!-- <main class="container">
+    <div class="row">
+        <div class='col-md-12' id="wesbiteName">
+            <h1>Rate My Trainer</h1>
+        </div>    
+    <p>Please select your name and submit to continue</p>
+      <div class='col-md-12 text-light'>  
+      <form id = 'registerForm'>
+        <button class="btn text-light" (click)="processLogin()">Submit</button>
+      <br/>
+    <select class="dropdown">
         <option value="aKing">Adam King</option>
         <option value="jDoe">Jane Doe</option>
         <option value="aQuesee">Andrew Quesee</option>
@@ -24,9 +30,48 @@
         <option value="jWick">John Wick</option>
         <option value="eMurphy">Eddie Murphy</option>
         <option value="mElliot">Missy Elliot</option>
-    </select>
-    <button (click)="processLogin()">Submit</button>
+    </select>    
+</form>
 </div>
+</div>
+</main>  -->
+<body>
+<main class="container">
+<div class="row">
+    <div class='col-md-12' id="wesbiteName">
+        <h1>Rate My Trainer</h1>        
+        <p>Please select your name to login and continue</p>
+    </div>  
+    <div class="col-md-12">
+        <form id = 'registerForm'>
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-light" ngbDropdownToggle>NAME</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" id="dropdown">
+          <button ngbDropdownItem (click)="processLogin()">Adam King</button>
+          <button ngbDropdownItem (click)="processLogin()">Jane Doe</button>
+          <button ngbDropdownItem (click)="processLogin()">Andrew Quesee</button>
+          <button ngbDropdownItem (click)="processLogin()">Andrew Atkins</button>
+          <button ngbDropdownItem (click)="processLogin()">Donald Duck</button>
+          <button ngbDropdownItem (click)="processLogin()">Mickey Mouse</button>
+          <button ngbDropdownItem (click)="processLogin()">Wonder Woman</button>
+          <button ngbDropdownItem (click)="processLogin()">Bat Man</button>
+          <button ngbDropdownItem (click)="processLogin()">et Phonehome</button>
+          <button ngbDropdownItem (click)="processLogin()">Charlie Chocolate</button>
+          <button ngbDropdownItem (click)="processLogin()">Adam Doe</button>
+          <button ngbDropdownItem (click)="processLogin()">Jane King</button>
+          <button ngbDropdownItem (click)="processLogin()">Andrew Atkins</button>
+          <button ngbDropdownItem (click)="processLogin()">Jordan Brown</button>
+          <button ngbDropdownItem (click)="processLogin()">Donald Mouse</button>
+          <button ngbDropdownItem (click)="processLogin()">Mickey Duck</button>
+          <button ngbDropdownItem (click)="processLogin()">Pam Smith</button>
+          <button ngbDropdownItem (click)="processLogin()">John Wick</button>
+          <button ngbDropdownItem (click)="processLogin()">Eddie Murphy</button>
+          <button ngbDropdownItem (click)="processLogin()">Missy Elliot</button>
+        </div>
+      </div>
+    </form>
+    </div>
+
 
 
 <div>
@@ -34,3 +79,5 @@
         <li>{{user.username}} {{user.lastName}} {{user.firstName}}</li>
     </ul>
 </div>
+
+
