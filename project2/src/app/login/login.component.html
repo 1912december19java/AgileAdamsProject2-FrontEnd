@@ -1,3 +1,6 @@
+
+<!-- <p>Please select your name and submit to continue</p> -->
+
 <!-- This may be replaced by a user's list from the DB-->
 <!-- <main class="container">
     <div class="row">
@@ -10,6 +13,7 @@
         <button class="btn text-light" (click)="processLogin()">Submit</button>
       <br/>
     <select class="dropdown">
+
         <option value="aKing">Adam King</option>
         <option value="jDoe">Jane Doe</option>
         <option value="aQuesee">Andrew Quesee</option>
@@ -45,7 +49,7 @@
     <div class="col-md-12">
         <form id = 'registerForm'>
       <div ngbDropdown class="d-inline-block">
-        <button class="btn btn-outline-light" ngbDropdownToggle>NAME</button>
+        <button class="btn text-light" id="dropdown-button" ngbDropdownToggle>NAME</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1" id="dropdown">
           <button ngbDropdownItem (click)="processLogin()">Adam King</button>
           <button ngbDropdownItem (click)="processLogin()">Jane Doe</button>
@@ -55,7 +59,8 @@
           <button ngbDropdownItem (click)="processLogin()">Mickey Mouse</button>
           <button ngbDropdownItem (click)="processLogin()">Wonder Woman</button>
           <button ngbDropdownItem (click)="processLogin()">Bat Man</button>
-          <button ngbDropdownItem (click)="processLogin()">et Phonehome</button>
+
+          <button ngbDropdownItem (click)="processLogin()">Et Phonehome</button>
           <button ngbDropdownItem (click)="processLogin()">Charlie Chocolate</button>
           <button ngbDropdownItem (click)="processLogin()">Adam Doe</button>
           <button ngbDropdownItem (click)="processLogin()">Jane King</button>
