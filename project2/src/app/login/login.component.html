@@ -1,9 +1,19 @@
+
 <!-- <p>Please select your name and submit to continue</p> -->
 
+<!-- This may be replaced by a user's list from the DB-->
+<!-- <main class="container">
+    <div class="row">
+        <div class='col-md-12' id="wesbiteName">
+            <h1>Rate My Trainer</h1>
+        </div>    
+    <p>Please select your name and submit to continue</p>
+      <div class='col-md-12 text-light'>  
+      <form id = 'registerForm'>
+        <button class="btn text-light" (click)="processLogin()">Submit</button>
+      <br/>
+    <select class="dropdown">
 
-<!-- This may be replaced by a user's list from the DB
-<div>
-    <select>
         <option value="aKing">Adam King</option>
         <option value="jDoe">Jane Doe</option>
         <option value="aQuesee">Andrew Quesee</option>
@@ -24,8 +34,9 @@
         <option value="jWick">John Wick</option>
         <option value="eMurphy">Eddie Murphy</option>
         <option value="mElliot">Missy Elliot</option>
-    </select>
-    <button (click)="processLogin()">Submit</button>
+    </select>    
+</form>
+</div>
 </div>
 </main>  -->
 <body>
@@ -48,6 +59,7 @@
           <button ngbDropdownItem (click)="processLogin()">Mickey Mouse</button>
           <button ngbDropdownItem (click)="processLogin()">Wonder Woman</button>
           <button ngbDropdownItem (click)="processLogin()">Bat Man</button>
+
           <button ngbDropdownItem (click)="processLogin()">Et Phonehome</button>
           <button ngbDropdownItem (click)="processLogin()">Charlie Chocolate</button>
           <button ngbDropdownItem (click)="processLogin()">Adam Doe</button>
@@ -72,3 +84,5 @@
         <li>{{user.username}} {{user.lastName}} {{user.firstName}}</li>
     </ul>
 </div>
+
+
