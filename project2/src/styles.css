@@ -2,11 +2,12 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 .grey_panel {
-    background-color : rgb(35, 35, 46);
+    background-color : rgb(23, 23, 37);
     box-shadow: 0px 1px 1px black;
     padding : 0px;
     margin : 0px;
     width : 100%;
+    border-radius: 2px;
 }
 
 .white_panel {
@@ -15,6 +16,7 @@
     padding : 5px;
     margin : 3px;
     width : 100%;
+    border-radius: 2px;
 }
 
 .left_panel {
@@ -23,9 +25,10 @@
     padding : 10px;
     margin-left : 24px;
     width : 100%;
+    border-radius: 2px;
 }
 
-main {
+body {
     background-color : black;
     text-decoration-color: white;
 }
@@ -93,4 +96,5 @@ body {
 
 .text-container {
     margin : 1px;
+    padding-left : 20px;
 }

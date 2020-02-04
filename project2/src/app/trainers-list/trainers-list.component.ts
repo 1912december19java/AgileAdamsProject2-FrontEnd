@@ -15,8 +15,15 @@ export class TrainersListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.addNewTrainer('Adam','King','Virginia','Java');
-    this.addNewTrainer('Jane', 'Doe', 'Washington DC', 'SQL');
+    this.addNewTrainer('Adam','King','Virginia','Java Angular Full Stack');
+    this.addNewTrainer('Jane', 'Doe', 'Florida', 'SalesForce');
+    this.addNewTrainer('Barney', 'Calhoun', 'Florida', 'Cybersecurity');
+    this.addNewTrainer('Gordon', 'Freeman', 'West Virginia', 'C# Full Stack');
+    this.addNewTrainer('Andrew', 'QcGuy', 'Virginia', 'Java React Full Stack');
+    this.addNewTrainer('Alyx', 'Vance', 'Texas', 'Cybersecurity');
+    this.addNewTrainer('Kurt', 'Cobain', 'West Virginia', 'Business Analyst');
+    this.addNewTrainer('Krist', 'Novoselic', 'Florida', 'Java Angular Full Stack');
+    this.addNewTrainer('Dave', 'Grohl', 'Texas', 'Java React Full Stack');
     // this.addNewTrainer('Adam','King');
     // this.addNewTrainer('Jane', 'Doe');
   }
