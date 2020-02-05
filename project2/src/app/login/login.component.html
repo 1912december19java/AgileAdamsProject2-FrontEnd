@@ -1,12 +1,5 @@
 
-<!-- <p>Please select your name and submit to continue</p> -->
-
-<!-- This may be replaced by a user's list from the DB-->
-<!-- <main class="container">
-    <div class="row">
-        <div class='col-md-12' id="wesbiteName">
-            <h1>Rate My Trainer</h1>
-        </div>    
+<div *ngIf="clicked">
     <p>Please select your name and submit to continue</p>
       <div class='col-md-12 text-light'>  
       <form id = 'registerForm'>
@@ -109,6 +102,7 @@
     </div>
 
 
+<!-- <p>Please select your name and submit to continue</p> -->
 
 <!-- <div>
     <ul *ngFor="let user of users">
@@ -122,5 +116,3 @@
   </select>
   <button (click)="trainerLogin()" [routerLink]="userpage">Submit</button>
 </div> -->
-
-

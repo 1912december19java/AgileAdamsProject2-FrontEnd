@@ -4,6 +4,7 @@ import { User } from './user';
 import { Trainer } from './trainer'
 import { Word } from './word'
 import { Router } from '@angular/router';
+import { CommentClass } from './comment-class';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,10 @@ export class AssociateService {
 
 
   async promiseGetAllUsers(): Promise<User[]> {
-    return await this.http.get<User[]>('http://localhost:8080/Project2/associates/').toPromise();
+    console.log("promiseGetAllUsers()")
+    return await this.http.get<User[]>('http://localhost:8080/Project2/associates/')
+    .toPromise();
+    
   }
 
   async getAllTrainerInfo(): Promise<Trainer[]> {
@@ -70,6 +74,10 @@ export class AssociateService {
 
   async getWordsByTrainer(username : string) : Promise<any[]>{
     return await this.http.get<any[]>(`http://localhost:8080/Project2/words/trainer/wCount/${username}`).toPromise(); 
+  }
+
+  async getCommentsByTrainer(username : string) : Promise<CommentClass[]>{
+    return await this.http.get<CommentClass[]>(`http://localhost:8080/Project2/comments/byTrainer/${username}`).toPromise();
   }
   
 }

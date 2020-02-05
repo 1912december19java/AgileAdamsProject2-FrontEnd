@@ -10,7 +10,7 @@ import { TrainerHomepageComponent } from './trainer-homepage/trainer-homepage.co
 
 
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'logout',
     component: LogoutComponentComponent,
@@ -41,6 +41,7 @@ const routes: Routes = [
   },
   {
     path: 'trainer-homepage',
+
     component: TrainerHomepageComponent
   }
 

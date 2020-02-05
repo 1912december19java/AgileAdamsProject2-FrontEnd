@@ -8,7 +8,7 @@
         <table class="comment_size">
             <tr *ngFor = "let comment of commentArray">
                 <td>
-                    <app-comment [testName]=comment.posterName [testComment]=comment.text [testDate]=comment.postDate></app-comment>
+                    <app-comment [testName]=comment.userUser.firstName [testComment]=comment.commentText [testDate]=comment.datePosted></app-comment>
                 </td>
             </tr>
         </table>
