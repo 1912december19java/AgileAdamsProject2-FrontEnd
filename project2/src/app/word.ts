@@ -2,13 +2,13 @@ import { Trainer } from './trainer';
 import { User } from './user';
 
 export class Word {
-    public word : string;
-    public trainerUser : Trainer;
-    public userUser : User;
+    public word;
+    public trainerUser = new Trainer('','','','','','');
+    public userUser = new User();
 
-    constructor(word : string, trainer : Trainer, user : User){
-        this.word = word;
-        this.trainerUser = trainer;
-        this.userUser = user;
+    constructor(Word : String){
+        this.word = Word;
+        this.trainerUser.username = 'aking';
+        this.userUser.username = 'dking';
     }
 }

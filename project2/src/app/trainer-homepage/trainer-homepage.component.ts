@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Word } from '../word';
+import { AssociateService } from '../associate.service';
 
 @Component({
   selector: 'app-trainer-homepage',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainerHomepageComponent implements OnInit {
 
-  constructor() { }
+  
+
+  constructor(public service : AssociateService) { }
 
   ngOnInit() {
+  }
+
+  adWord(){    
+    this.service.addWord();
   }
 
 }

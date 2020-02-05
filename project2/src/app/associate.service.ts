@@ -19,15 +19,25 @@ export class AssociateService {
 
 
   async promiseGetAllUsers(): Promise<User[]> {
-    return await this.http.get<User[]>('http://localhost:8080/Project2/associates/').toPromise();
+    return await this.http.get<User[]>('http://localhost:8081/Project2/associates/').toPromise();
   }
 
   getAllTrainerInfo() {
     console.log("getAllTrainerInfo()") 
-    this.http.get("http://localhost:8080/Project2/trainers")
+    this.http.get("http://localhost:8081/Project2/trainers")
     .subscribe((response: Trainer[])=>{
       console.log(response);
       console.log("test")
+    })
+   }
+
+   addWord() {
+    console.log("addWord()") 
+    const word = new Word('');
+    this.http.post("http://localhost:8081/Project2/words/addWord", word)
+    .subscribe((response: Word[])=>{
+      console.log(response);
+      console.log("test");
     })
    }
 
@@ -50,7 +60,7 @@ export class AssociateService {
   }
 
   async getWordsByTrainer(username : string) : Promise<any[]>{
-    return await this.http.get<any[]>(`http://localhost:8080/Project2/words/trainer/wCount/${username}`).toPromise(); 
+    return await this.http.get<any[]>(`http://localhost:8081/Project2/words/trainer/wCount/${username}`).toPromise(); 
   }
   
 }
