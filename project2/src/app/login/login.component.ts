@@ -3,7 +3,6 @@ import { User, USER_MOCKS } from '../user';
 import { Trainer } from '../trainer';
 import {AssociateService} from '../associate.service';
 import { stringify } from 'querystring';
-import { Trainer } from '../trainer';
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from '../app-routing.module'
 import {ActivatedRoute, Router, RouterModule, Routes} from '@angular/router';
