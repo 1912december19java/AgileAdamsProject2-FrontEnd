@@ -4,7 +4,7 @@ export class User{
     lastName: string;
     username?: string;
     passcode?: string;
-    picture?: string;
+    picture?: File;
 }
 
 export const USER_MOCKS = [
