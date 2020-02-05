@@ -16,26 +16,28 @@ export class AssociateService {
   // public loggedInTrainer: Trainer = new Trainer('','');
   public loggedInTrainer: Trainer = new Trainer('','','','');
   public currentWordSet : any[];
+  public word: Word = new Word('');
 
 
   async promiseGetAllUsers(): Promise<User[]> {
-    return await this.http.get<User[]>('http://localhost:8081/Project2/associates/').toPromise();
+    return await this.http.get<User[]>('http://localhost:8080/Project2/associates/').toPromise();
   }
 
   getAllTrainerInfo() {
     console.log("getAllTrainerInfo()") 
-    this.http.get("http://localhost:8081/Project2/trainers")
+    this.http.get("http://localhost:8080/Project2/trainers")
     .subscribe((response: Trainer[])=>{
       console.log(response);
       console.log("test")
     })
    }
 
-   addWord() {
+   addWord(word : string) {
     console.log("addWord()") 
-    const word = new Word('');
-    this.http.post("http://localhost:8081/Project2/words/addWord", word)
+    const words = new Word(word);
+    this.http.post("http://localhost:8080/Project2/words/addWord", words)
     .subscribe((response: Word[])=>{
+      this.word = words;
       console.log(response);
       console.log("test");
     })
@@ -43,7 +45,7 @@ export class AssociateService {
 
    attemptLogIn(username: string, password: string, location: string, curriculum: string) {
     const loggingInAsTrainer = new Trainer(username, password, location, curriculum);
-    this.http.post('http://localhost:8081/trainers/login', loggingInAsTrainer)
+    this.http.post('http://localhost:8080/trainers/login', loggingInAsTrainer)
         .subscribe((response: boolean)=>{
           if(response) {
             this.isLoggedIn = true;
@@ -60,7 +62,7 @@ export class AssociateService {
   }
 
   async getWordsByTrainer(username : string) : Promise<any[]>{
-    return await this.http.get<any[]>(`http://localhost:8081/Project2/words/trainer/wCount/${username}`).toPromise(); 
+    return await this.http.get<any[]>(`http://localhost:8080/Project2/words/trainer/wCount/${username}`).toPromise(); 
   }
   
 }
