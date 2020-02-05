@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User, USER_MOCKS } from '../user';
+import { Trainer } from '../trainer';
 import {AssociateService} from '../associate.service';
+import { stringify } from 'querystring';
 import { Trainer } from '../trainer';
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from '../app-routing.module'
@@ -14,37 +16,31 @@ import {ActivatedRoute, Router, RouterModule, Routes} from '@angular/router';
 export class LoginComponent implements OnInit {
 
   users: User[] = [];
-  trainers: Trainer[]=[];
-  selectedTrainer: Trainer;
-  selectedUser: User;
-  clicked: boolean=true;
+  trainers: Trainer[] = [];
 
-
-
-  constructor(private userService: AssociateService, private router: Router) { }
+  constructor(private service: AssociateService,) { }
 
   ngOnInit() {
     this.populateUsers();
     this.populateTrainers();
-    
   }
 
-  trainerLogin(): void {
-    console.log(this.selectedTrainer);
-    this.clicked = false;
-    this.router.navigate(['trainer-homepage']);
+  processUserLogin(event, user: User): void {
+    this.service.attemptLogInAsUser(user.username, user.passcode, user.firstName, user.lastName, user.picture);
   }
-  userLogin(): void {
-    console.log(this.selectedUser);
+
+  processTrainerLogin(event, trainer: Trainer): void {
+    console.log("processTrainerLogin()")
+    this.service.attemptLogInAsTrainer(trainer.username, trainer.password, trainer.firstName, trainer.lastName, trainer.location, trainer.curriculum);
   }
 
   async populateUsers() {
-    this.users = await this.userService.promiseGetAllUsers();
+    this.users = await this.service.promiseGetAllUsers();
     console.log(this.users);
   }
 
   async populateTrainers(){
-    this.trainers = await this.userService.getAllTrainerInfo();
+    this.trainers = await this.service.getAllTrainerInfo();
     console.log(this.trainers);
   }
 

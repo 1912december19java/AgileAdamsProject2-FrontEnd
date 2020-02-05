@@ -41,7 +41,8 @@ export const routes: Routes = [
   },
   {
     path: 'trainer-homepage',
-    component: TrainerHomepageComponent,
+
+    component: TrainerHomepageComponent
   }
 
   

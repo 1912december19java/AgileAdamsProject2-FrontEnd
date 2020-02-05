@@ -1,29 +1,118 @@
 
 <div *ngIf="clicked">
     <p>Please select your name and submit to continue</p>
+      <div class='col-md-12 text-light'>  
+      <form id = 'registerForm'>
+        <button class="btn text-light" (click)="processLogin()">Submit</button>
+      <br/>
+    <select class="dropdown">
+
+        <option value="aKing">Adam King</option>
+        <option value="jDoe">Jane Doe</option>
+        <option value="aQuesee">Andrew Quesee</option>
+        <option value="jAtkins">Jordan Atkins</option>
+        <option value="dDuck">Donald Duck</option>
+        <option value="mMouse">Mickey Mouse</option>
+        <option value="wWoman">Wonder Woman</option>
+        <option value="bMan">Bat Man</option>
+        <option value="ePhonehome">Et Phonehome</option>
+        <option value="cChocolate">Charlie Chocolate</option>
+        <option value="aDoe">Adam Doe</option>
+        <option value="jKing">Jane King</option>
+        <option value="aAtkins">Andrew Atkins</option>
+        <option value="jBrown">Jordan Brown</option>
+        <option value="dMouse">Donald Mouse</option>
+        <option value="mDuck">Mickey Duck</option>
+        <option value="pSmith">Pam Smith</option>
+        <option value="jWick">John Wick</option>
+        <option value="eMurphy">Eddie Murphy</option>
+        <option value="mElliot">Missy Elliot</option>
+    </select>    
+</form>
+</div>
+</div>
+</main>  -->
+<body  *ngIf="!isLoggedIn">
+<main class="container">
+<div class="row">
+    <div class='col-md-12' id="wesbiteName">
+        <h1>Rate My Trainer</h1>        
+        <p>Please select your name to login and continue</p>
+    </div>  
+    <div class="col-md-12">
+        <form id = 'registerForm'>
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn text-light" id="dropdown-button" ngbDropdownToggle>USER</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" id="dropdown" >
+          <div *ngFor="let user of users">
+            <button ngbDropdownItem (click)="processUserLogin($event, user)"> {{user.lastName}} {{user.firstName}}</button>
+          </div>
+          <!-- <button ngbDropdownItem (click)="processLogin()">Jane Doe</button>
+          <button ngbDropdownItem (click)="processLogin()">Andrew Quesee</button>
+          <button ngbDropdownItem (click)="processLogin()">Andrew Atkins</button>
+          <button ngbDropdownItem (click)="processLogin()">Donald Duck</button>
+          <button ngbDropdownItem (click)="processLogin()">Mickey Mouse</button>
+          <button ngbDropdownItem (click)="processLogin()">Wonder Woman</button>
+          <button ngbDropdownItem (click)="processLogin()">Bat Man</button>
+
+          <button ngbDropdownItem (click)="processLogin()">Et Phonehome</button>
+          <button ngbDropdownItem (click)="processLogin()">Charlie Chocolate</button>
+          <button ngbDropdownItem (click)="processLogin()">Adam Doe</button>
+          <button ngbDropdownItem (click)="processLogin()">Jane King</button>
+          <button ngbDropdownItem (click)="processLogin()">Andrew Atkins</button>
+          <button ngbDropdownItem (click)="processLogin()">Jordan Brown</button>
+          <button ngbDropdownItem (click)="processLogin()">Donald Mouse</button>
+          <button ngbDropdownItem (click)="processLogin()">Mickey Duck</button>
+          <button ngbDropdownItem (click)="processLogin()">Pam Smith</button>
+          <button ngbDropdownItem (click)="processLogin()">John Wick</button>
+          <button ngbDropdownItem (click)="processLogin()">Eddie Murphy</button>
+          <button ngbDropdownItem (click)="processLogin()">Missy Elliot</button> -->
+        </div>
+      </div>
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn text-light" id="dropdown-button" ngbDropdownToggle>TRAINER</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" id="dropdown" >
+          <div *ngFor="let trainer of trainers">
+            <button ngbDropdownItem (click)="processTrainerLogin($event, trainer)"> {{trainer.lastName}} {{trainer.firstName}}</button>
+          </div>
+          <!-- <button ngbDropdownItem (click)="processLogin()">Jane Doe</button>
+          <button ngbDropdownItem (click)="processLogin()">Andrew Quesee</button>
+          <button ngbDropdownItem (click)="processLogin()">Andrew Atkins</button>
+          <button ngbDropdownItem (click)="processLogin()">Donald Duck</button>
+          <button ngbDropdownItem (click)="processLogin()">Mickey Mouse</button>
+          <button ngbDropdownItem (click)="processLogin()">Wonder Woman</button>
+          <button ngbDropdownItem (click)="processLogin()">Bat Man</button>
+
+          <button ngbDropdownItem (click)="processLogin()">Et Phonehome</button>
+          <button ngbDropdownItem (click)="processLogin()">Charlie Chocolate</button>
+          <button ngbDropdownItem (click)="processLogin()">Adam Doe</button>
+          <button ngbDropdownItem (click)="processLogin()">Jane King</button>
+          <button ngbDropdownItem (click)="processLogin()">Andrew Atkins</button>
+          <button ngbDropdownItem (click)="processLogin()">Jordan Brown</button>
+          <button ngbDropdownItem (click)="processLogin()">Donald Mouse</button>
+          <button ngbDropdownItem (click)="processLogin()">Mickey Duck</button>
+          <button ngbDropdownItem (click)="processLogin()">Pam Smith</button>
+          <button ngbDropdownItem (click)="processLogin()">John Wick</button>
+          <button ngbDropdownItem (click)="processLogin()">Eddie Murphy</button>
+          <button ngbDropdownItem (click)="processLogin()">Missy Elliot</button> -->
+        </div>
+      </div>
+    </form>
+
+    </div>
 
 
 <!-- <p>Please select your name and submit to continue</p> -->
 
-    <!-- This may be replaced by a user's list from the DB-->
-    <div>
-        <select [(ngModel)]="selectedTrainer">
-             <option *ngFor=" let trainer of trainers" [ngValue]="trainer">{{trainer.lastName}} {{trainer.firstName}}</option>
-        </select>
-        <button (click)="trainerLogin()" [routerLink]="userpage">Submit</button>
-    </div>
-    
-    
-    <!-- <div>
-        <ul *ngFor="let user of users">
-            <li>{{user.username}} {{user.lastName}} {{user.firstName}}</li>
-        </ul>
-    </div> -->
-    
-    <div>
-        <select [(ngModel)]="selectedUser">
-            <option *ngFor="let user of users" [ngValue]="user">{{user.lastName}} {{user.firstName}}</option>
-        </select>
-        <button (click)="userLogin()">Submit</button>
-    </div>
-</div>
+<!-- <div>
+    <ul *ngFor="let user of users">
+        <li>{{user.username}} {{user.lastName}} {{user.firstName}}</li>
+    </ul>
+</div> -->
+
+<!-- <div>
+  <select [(ngModel)]="selectedTrainer">
+       <option *ngFor=" let trainer of trainers" [ngValue]="trainer">{{trainer.lastName}} {{trainer.firstName}}</option>
+  </select>
+  <button (click)="trainerLogin()" [routerLink]="userpage">Submit</button>
+</div> -->
