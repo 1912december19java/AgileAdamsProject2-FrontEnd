@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommentClass } from '../comment-class';
+import { AssociateService } from '../associate.service';
 
 @Component({
   selector: 'app-comment-container',
@@ -10,17 +11,22 @@ export class CommentContainerComponent implements OnInit {
 
   commentArray : CommentClass[] = [];
 
-  constructor() { }
+  constructor(private httpService : AssociateService) { }
 
   ngOnInit() {
-    this.addNewComment('chopin', 'yummu yummy', '1/1/1');
-    this.addNewComment('sunni', 'chasing mice', '1/1/1');
-    this.addNewComment('madcat', 'i mad', '1/1/1');
-    this.addNewComment('keith', 'cats can have a little salami', '1/1/1');
+    this.populateResolvedComments();
   }
 
-  addNewComment(newName : string, newText : string, newDate : string){
-    this.commentArray.push(new CommentClass(newName, newText, newDate));
+  addNewComment(newText : string, newDate : string, newApproval : string){
+    this.commentArray.push(new CommentClass(newText, newDate, newApproval));
   }
 
+  async populateResolvedComments(){
+    let tempComments = await this.httpService.getCommentsByTrainer('aking');
+    for(let comment of tempComments){
+      if(comment.approval !== 'pending'){
+        this.commentArray.push(comment);
+      }
+    }
+  }
 }

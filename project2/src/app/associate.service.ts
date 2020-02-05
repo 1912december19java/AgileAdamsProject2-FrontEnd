@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from './user';
 import { Trainer } from './trainer'
 import { Word } from './word'
+import { CommentClass } from './comment-class';
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +52,10 @@ export class AssociateService {
 
   async getWordsByTrainer(username : string) : Promise<any[]>{
     return await this.http.get<any[]>(`http://localhost:8080/Project2/words/trainer/wCount/${username}`).toPromise(); 
+  }
+
+  async getCommentsByTrainer(username : string) : Promise<CommentClass[]>{
+    return await this.http.get<CommentClass[]>(`http://localhost:8080/Project2/comments/byTrainer/${username}`).toPromise();
   }
   
 }
