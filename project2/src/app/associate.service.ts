@@ -38,6 +38,39 @@ export class AssociateService {
     .toPromise();
    }
 
+   attemptLogInAsUser(username: string, passcode: string, firstName: string, lastName: string, picture: File) {
+    const loggingInAsUser = new User(username, passcode, firstName, lastName, picture);
+    console.log(loggingInAsUser.username);
+    this.http.get(`http://localhost:8080/Project2/associates/${username}`)
+        .subscribe((response: boolean)=>{
+          if(response) {
+            this.isLoggedIn = true;
+            this.loggedInUser = loggingInAsUser;
+            console.log(this.loggedInUser)
+            this.router.navigate(['userpage'])
+          } else {
+            this.isLoggedIn = false;
+            this.loggedInUser = new User('','','','',null);
+          }
+        });
+  }
+  attemptLogInAsTrainer(username: string, password: string, firstName: string, lastName: string, location: string, curriculum: string) {
+    const loggingInAsTrainer = new Trainer(username, password, firstName, lastName, location, curriculum);
+    console.log("attemptLogInAsTrainer()" + loggingInAsTrainer.username)
+    this.http.get(`http://localhost:8080/Project2/trainers/${loggingInAsTrainer.username}`)
+    .subscribe((response: boolean)=>{
+      if(response) {
+        this.isLoggedIn = true;
+        this.loggedInTrainer = loggingInAsTrainer;
+        console.log(this.loggedInTrainer)
+        this.router.navigate(['trainer-homepage'])
+      } else {
+        this.isLoggedIn = false;
+        this.loggedInTrainer = new Trainer('','','','','','');
+      }
+    });
+  }
+
    addWord(word : string) {
     console.log("addWord()") 
     const words = new Word(word);
