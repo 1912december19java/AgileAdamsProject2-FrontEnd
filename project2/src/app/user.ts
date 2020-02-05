@@ -1,11 +1,22 @@
 export class User{
     
-    firstName: string;
-    lastName: string;
+    firstName?: string;
+    lastName?: string;
     username?: string;
     passcode?: string;
     picture?: string;
+
+
+    constructor(username?: string, passcode?: string, firstName?: string, lastName?: string, picture?: string){
+        this.username = username;
+        this.passcode = passcode;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.picture = picture;
+    }
 }
+
+
 
 export const USER_MOCKS = [
     {

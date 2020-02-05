@@ -52,7 +52,35 @@
         <button class="btn text-light" id="dropdown-button" ngbDropdownToggle>NAME</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1" id="dropdown" >
           <div *ngFor="let user of users">
-            <button ngbDropdownItem (click)="processLogin()">{{user.username}} {{user.lastName}} {{user.firstName}}</button>
+            <button ngbDropdownItem (click)="processUserLogin($event, user)"> {{user.lastName}} {{user.firstName}}</button>
+          </div>
+          <!-- <button ngbDropdownItem (click)="processLogin()">Jane Doe</button>
+          <button ngbDropdownItem (click)="processLogin()">Andrew Quesee</button>
+          <button ngbDropdownItem (click)="processLogin()">Andrew Atkins</button>
+          <button ngbDropdownItem (click)="processLogin()">Donald Duck</button>
+          <button ngbDropdownItem (click)="processLogin()">Mickey Mouse</button>
+          <button ngbDropdownItem (click)="processLogin()">Wonder Woman</button>
+          <button ngbDropdownItem (click)="processLogin()">Bat Man</button>
+
+          <button ngbDropdownItem (click)="processLogin()">Et Phonehome</button>
+          <button ngbDropdownItem (click)="processLogin()">Charlie Chocolate</button>
+          <button ngbDropdownItem (click)="processLogin()">Adam Doe</button>
+          <button ngbDropdownItem (click)="processLogin()">Jane King</button>
+          <button ngbDropdownItem (click)="processLogin()">Andrew Atkins</button>
+          <button ngbDropdownItem (click)="processLogin()">Jordan Brown</button>
+          <button ngbDropdownItem (click)="processLogin()">Donald Mouse</button>
+          <button ngbDropdownItem (click)="processLogin()">Mickey Duck</button>
+          <button ngbDropdownItem (click)="processLogin()">Pam Smith</button>
+          <button ngbDropdownItem (click)="processLogin()">John Wick</button>
+          <button ngbDropdownItem (click)="processLogin()">Eddie Murphy</button>
+          <button ngbDropdownItem (click)="processLogin()">Missy Elliot</button> -->
+        </div>
+      </div>
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn text-light" id="dropdown-button" ngbDropdownToggle>NAME</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" id="dropdown" >
+          <div *ngFor="let user of users">
+            <button ngbDropdownItem (click)="processUserLogin($event, user)"> {{user.lastName}} {{user.firstName}}</button>
           </div>
           <!-- <button ngbDropdownItem (click)="processLogin()">Jane Doe</button>
           <button ngbDropdownItem (click)="processLogin()">Andrew Quesee</button>
@@ -77,6 +105,7 @@
         </div>
       </div>
     </form>
+
     </div>
 
 
