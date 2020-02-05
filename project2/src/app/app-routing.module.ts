@@ -45,12 +45,11 @@ export const routes: Routes = [
     path: 'trainers',
     component: TrainersListComponent,
   },
-
+  {
     path: 'trainer-homepage',
 
-    component: TrainerHomepageComponent
-  }
-
+    component: TrainerHomepageComponent,
+  },
   {
     path:'trainertable',
     component: TrainerTableComponent,

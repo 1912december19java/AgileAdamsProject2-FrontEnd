@@ -12,7 +12,7 @@ export class Trainer {
 
     constructor(username?: string, password?: string, firstName?: string, lastName?: string, location? : string, curriculum?: string ){
         this.username = username;
-        this.password = password;
+        this.passcode = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.location = location;

@@ -15,7 +15,7 @@ export class AssociateService {
 
   //THESE WILL SAVE THE STATE OF YOUR LOGIN AND CAN BE USED IF YOU PASS THIS SERVICE THROUGH TO YOUR CONSTRUCTOR
   public isLoggedIn: boolean = false;
-  public loggedInUser: User = new User('','','','','');
+  public loggedInUser: User = new User('','','','',null);
   public loggedInTrainer: Trainer = new Trainer('','','','','','');
   public currentWordSet : any[];
 
@@ -37,7 +37,7 @@ export class AssociateService {
     .toPromise();
    }
 
-   attemptLogInAsUser(username: string, passcode: string, firstName: string, lastName: string, picture: string) {
+   attemptLogInAsUser(username: string, passcode: string, firstName: string, lastName: string, picture: File) {
     const loggingInAsUser = new User(username, passcode, firstName, lastName, picture);
     console.log(loggingInAsUser.username);
     this.http.get(`http://localhost:8080/Project2/associates/${username}`)
@@ -49,7 +49,7 @@ export class AssociateService {
             this.router.navigate(['userpage'])
           } else {
             this.isLoggedIn = false;
-            this.loggedInUser = new User('','','','','');
+            this.loggedInUser = new User('','','','',null);
           }
         });
   }
@@ -71,7 +71,7 @@ export class AssociateService {
   }
   logOut() {
     this.isLoggedIn = false;
-    this.loggedInUser = new User('','','','','');
+    this.loggedInUser = new User('','','','',null);
     this.loggedInTrainer = new Trainer('','','','','','');
     this.router.navigate(['login'])
   }
@@ -85,23 +85,3 @@ export class AssociateService {
   }
   
 }
-
-
-
-
-
-// attemptLogInAsUser(username: string, passcode: string, firstName: string, lastName: string, picture: string) {
-//   const loggingInAsUser = new User(username, passcode, firstName, lastName, picture);
-//   console.log(loggingInAsUser.username);
-//   this.http.post(`http://localhost:8080/Project2/associates/${username}`, loggingInAsUser.username)
-//       .subscribe((response: boolean)=>{
-//         if(response) {
-//           this.isLoggedIn = true;
-//           this.loggedInUser = loggingInAsUser;
-//           this.router.navigate(['userpage'])
-//         } else {
-//           this.isLoggedIn = false;
-//           this.loggedInUser = new User('','');
-//         }
-//       });
-// }

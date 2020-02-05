@@ -15,8 +15,10 @@ export class TrainerTableComponent {
   trainers$: Observable<Trainer[]>;
   filter = new FormControl('');
   tempNumber: number = 10;
+  photoConvert : string = "data:image/png;base64,";
 
   constructor(public userService: AssociateService) {
+  
 
   }
 
@@ -26,6 +28,7 @@ export class TrainerTableComponent {
 
   async populateTrainers() {
     this.trainers = await this.userService.promiseGetAllTrainers();
+    console.log(this.trainers);
     this.trainers$ = this.filter.valueChanges.pipe(
       startWith(''),
       map(text => this.search(text))

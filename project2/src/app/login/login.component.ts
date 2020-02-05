@@ -17,8 +17,6 @@ export class LoginComponent implements OnInit {
   users: User[] = [];
   trainers: Trainer[] = [];
 
-  trainers: Trainer[] = [];
-
   imageConvert: string = "data:image/png;base64,";
 
   constructor(private service: AssociateService,) { }
@@ -34,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   processTrainerLogin(event, trainer: Trainer): void {
     console.log("processTrainerLogin()")
-    this.service.attemptLogInAsTrainer(trainer.username, trainer.password, trainer.firstName, trainer.lastName, trainer.location, trainer.curriculum);
+    this.service.attemptLogInAsTrainer(trainer.username, trainer.passcode, trainer.firstName, trainer.lastName, trainer.location, trainer.curriculum);
   }
 
   async populateUsers() {
@@ -45,10 +43,6 @@ export class LoginComponent implements OnInit {
   async populateTrainers(){
     this.trainers = await this.service.getAllTrainerInfo();
     console.log(this.trainers);
-  }
-
-  async populateTrainers() {
-    this.trainers = await this.userService.promiseGetAllTrainers();
   }
 
 
