@@ -1,7 +1,13 @@
+
+div ul li{
+    color: black;
+}
+
 h1,p{
     text-align: center;
     vertical-align: middle;
 }
+
 
 #usernames{
     align-items: center;
@@ -17,7 +23,6 @@ body{
 }
 
 #registerForm{
-    
     text-align: center;
     margin: auto;
     margin-bottom: 20px;
@@ -26,12 +31,16 @@ body{
     border: 3px solid grey;
     background-color: black;
     padding: 10px;
-
 }
 
 .btn{
     background-color: black;  
     border: 3px solid grey;
+    padding: 10px;
+}
+
+#dropdown-button:hover {
+    background-color: grey;
 }
 
 #dropdown{
@@ -47,5 +56,3 @@ body{
     padding: unset;
     background-color: unset;
 }
-
-
