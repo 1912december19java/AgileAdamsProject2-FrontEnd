@@ -16,7 +16,7 @@ export class AssociateService {
   public isLoggedIn: boolean = false;
   // public loggedInTrainer: Trainer = new Trainer('','');
   public loggedInUser: User = new User('','','','','');
-  public loggedInTrainer: Trainer = new Trainer('','','','');
+  public loggedInTrainer: Trainer = new Trainer('','','','','','');
   public currentWordSet : any[];
 
 
@@ -24,13 +24,10 @@ export class AssociateService {
     return await this.http.get<User[]>('http://localhost:8080/Project2/associates/').toPromise();
   }
 
-  getAllTrainerInfo() {
+  async getAllTrainerInfo(): Promise<Trainer[]> {
     console.log("getAllTrainerInfo()") 
-    this.http.get("http://localhost:8080/Project2/trainers")
-    .subscribe((response: Trainer[])=>{
-      console.log(response);
-      console.log("test")
-    })
+    return await this.http.get<Trainer[]>("http://localhost:8080/Project2/trainers")
+    .toPromise();
    }
 
    attemptLogInAsUser(username: string, passcode: string, firstName: string, lastName: string, picture: string) {
@@ -45,26 +42,31 @@ export class AssociateService {
             this.router.navigate(['userpage'])
           } else {
             this.isLoggedIn = false;
-            this.loggedInUser = new User('','');
+            this.loggedInUser = new User('','','','','');
           }
         });
   }
-  attemptLogInAsTrainer(username: string, password: string, location: string, curriculum: string) {
-    const loggingInAsTrainer = new Trainer(username, password, location, curriculum);
-    this.http.post('http://localhost:8081/trainers/login', loggingInAsTrainer.username)
+  attemptLogInAsTrainer(username: string, password: string, firstName: string, lastName: string, location: string, curriculum: string) {
+    const loggingInAsTrainer = new Trainer(username, password, firstName, lastName, location, curriculum);
+    console.log("attemptLogInAsTrainer()" + loggingInAsTrainer.username)
+    this.http.get(`http://localhost:8080/Project2/trainers/${loggingInAsTrainer.username}`)
         .subscribe((response: boolean)=>{
           if(response) {
             this.isLoggedIn = true;
             this.loggedInTrainer = loggingInAsTrainer;
+            console.log(this.loggedInTrainer)
+            this.router.navigate(['trainer-homepage'])
           } else {
             this.isLoggedIn = false;
-            this.loggedInTrainer = new Trainer('','');
+            this.loggedInTrainer = new Trainer('','','','','','');
           }
         });
   }
   logOut() {
     this.isLoggedIn = false;
-    this.loggedInTrainer = new Trainer('','');
+    this.loggedInUser = new User('','','','','');
+    this.loggedInTrainer = new Trainer('','','','','','');
+    this.router.navigate(['login'])
   }
 
   async getWordsByTrainer(username : string) : Promise<any[]>{

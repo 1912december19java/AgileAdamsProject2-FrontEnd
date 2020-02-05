@@ -49,7 +49,7 @@
     <div class="col-md-12">
         <form id = 'registerForm'>
       <div ngbDropdown class="d-inline-block">
-        <button class="btn text-light" id="dropdown-button" ngbDropdownToggle>NAME</button>
+        <button class="btn text-light" id="dropdown-button" ngbDropdownToggle>USER</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1" id="dropdown" >
           <div *ngFor="let user of users">
             <button ngbDropdownItem (click)="processUserLogin($event, user)"> {{user.lastName}} {{user.firstName}}</button>
@@ -77,10 +77,10 @@
         </div>
       </div>
       <div ngbDropdown class="d-inline-block">
-        <button class="btn text-light" id="dropdown-button" ngbDropdownToggle>NAME</button>
+        <button class="btn text-light" id="dropdown-button" ngbDropdownToggle>TRAINER</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1" id="dropdown" >
-          <div *ngFor="let user of users">
-            <button ngbDropdownItem (click)="processUserLogin($event, user)"> {{user.lastName}} {{user.firstName}}</button>
+          <div *ngFor="let trainer of trainers">
+            <button ngbDropdownItem (click)="processTrainerLogin($event, trainer)"> {{trainer.lastName}} {{trainer.firstName}}</button>
           </div>
           <!-- <button ngbDropdownItem (click)="processLogin()">Jane Doe</button>
           <button ngbDropdownItem (click)="processLogin()">Andrew Quesee</button>

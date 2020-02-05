@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { AddWordComponent } from './add-word/add-word.component';
+import { TrainerHomepageComponent } from './trainer-homepage/trainer-homepage.component';
 
 
 
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'addword',
     component: AddWordComponent,
+  },
+  {
+    path: 'trainer-homepage',
+    component: TrainerHomepageComponent
   }
 
   
