@@ -4,7 +4,7 @@
             <table>
                 <tr *ngFor = "let comment of commentArray">
                     <td>
-                        <app-trainer-approval-comment [testName]=comment.posterName [testComment]=comment.text [testDate]=comment.postDate></app-trainer-approval-comment>
+                        <app-trainer-approval-comment [testName]=comment.userUser.firstName [testComment]=comment.commentText [testDate]=comment.datePosted></app-trainer-approval-comment>
                     </td>
                 </tr>
             </table>

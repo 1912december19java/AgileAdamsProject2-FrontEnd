@@ -3,33 +3,39 @@ import { HttpClient } from '@angular/common/http';
 import { User } from './user';
 import { Trainer } from './trainer'
 import { Word } from './word'
+import { Router } from '@angular/router';
+import { CommentClass } from './comment-class';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AssociateService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
-
+  //THESE WILL SAVE THE STATE OF YOUR LOGIN AND CAN BE USED IF YOU PASS THIS SERVICE THROUGH TO YOUR CONSTRUCTOR
   public isLoggedIn: boolean = false;
-  // public loggedInTrainer: Trainer = new Trainer('','');
-  public loggedInTrainer: Trainer = new Trainer('','','','');
+  public loggedInUser: User = new User('','','','',null);
+  public loggedInTrainer: Trainer = new Trainer('','','','','','');
   public currentWordSet : any[];
   public word: Word = new Word('');
 
 
   async promiseGetAllUsers(): Promise<User[]> {
-    return await this.http.get<User[]>('http://localhost:8080/Project2/associates/').toPromise();
+    console.log("promiseGetAllUsers()")
+    return await this.http.get<User[]>('http://localhost:8080/Project2/associates/')
+    .toPromise();
+    
   }
 
-  getAllTrainerInfo() {
+  async promiseGetAllTrainers(): Promise<Trainer[]> {
+    return await this.http.get<Trainer[]>('http://localhost:8080/Project2/trainers/').toPromise();
+  }
+
+  async getAllTrainerInfo() {
     console.log("getAllTrainerInfo()") 
-    this.http.get("http://localhost:8080/Project2/trainers")
-    .subscribe((response: Trainer[])=>{
-      console.log(response);
-      console.log("test")
-    })
+    return await this.http.get<Trainer[]>("http://localhost:8080/Project2/trainers")
+    .toPromise();
    }
 
    addWord(word : string) {
@@ -50,22 +56,27 @@ export class AssociateService {
           if(response) {
             this.isLoggedIn = true;
             this.loggedInTrainer = loggingInAsTrainer;
+            console.log(this.loggedInTrainer)
+            this.router.navigate(['trainer-homepage'])
           } else {
             this.isLoggedIn = false;
-            this.loggedInTrainer = new Trainer('','');
+            this.loggedInTrainer = new Trainer('','','','','','');
           }
         });
   }
   logOut() {
     this.isLoggedIn = false;
-    this.loggedInTrainer = new Trainer('','');
+    this.loggedInUser = new User('','','','',null);
+    this.loggedInTrainer = new Trainer('','','','','','');
+    this.router.navigate(['login'])
   }
 
   async getWordsByTrainer(username : string) : Promise<any[]>{
     return await this.http.get<any[]>(`http://localhost:8080/Project2/words/trainer/wCount/${username}`).toPromise(); 
   }
+
+  async getCommentsByTrainer(username : string) : Promise<CommentClass[]>{
+    return await this.http.get<CommentClass[]>(`http://localhost:8080/Project2/comments/byTrainer/${username}`).toPromise();
+  }
   
 }
-
-
-

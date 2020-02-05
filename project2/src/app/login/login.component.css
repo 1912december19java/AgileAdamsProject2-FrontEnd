@@ -1,3 +1,8 @@
+
+div ul li{
+    color: black;
+}
+
 h1,p{
     text-align: center;
     vertical-align: middle;
@@ -51,5 +56,3 @@ body{
     padding: unset;
     background-color: unset;
 }
-
-

@@ -1,11 +1,21 @@
 export class User{
     
-    firstName: string;
-    lastName: string;
+    firstName?: string;
+    lastName?: string;
     username?: string;
     passcode?: string;
-    picture?: string;
+    picture?: File;
+
+    constructor(username?: string, passcode?: string, firstName?: string, lastName?: string, picture?: File){
+        this.username = username;
+        this.passcode = passcode;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.picture = picture;
+    }
 }
+
+
 
 export const USER_MOCKS = [
     {
@@ -13,7 +23,7 @@ export const USER_MOCKS = [
         passcode: "12345",
         firstName : "Jane",
         lastName : "Doe",        
-        picture : ""
+        picture : null
     },
 
     {
@@ -21,7 +31,7 @@ export const USER_MOCKS = [
         password : "12345",
         firstName : "Paul",
         lastName : "Brown",
-        picture: ""        
+        picture: null        
     }
 
 ];

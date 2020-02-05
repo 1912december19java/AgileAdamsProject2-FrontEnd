@@ -1,19 +1,20 @@
 export class Trainer {
 
+        
     firstName : string;
     lastName : string;
     location : string;
     curriculum : string;
     username: string;
-    password: string;
+    passcode: string;
+    picture: File;
 
-    constructor(fName?: string, lName?: string, tLoc?: string, tCurr?: string, tUser? : string, tPass?: string ){
-        this.firstName = fName;
-        this.lastName = lName;
-        this.username = tUser;
-        this.password = tPass;
-        this.location = tLoc;
-        this.curriculum = tCurr;
+    constructor(username?: string, password?: string, firstName?: string, lastName?: string, location? : string, curriculum?: string ){
+        this.username = username;
+        this.passcode = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.location = location;
+        this.curriculum = curriculum;
     }
-    
 }

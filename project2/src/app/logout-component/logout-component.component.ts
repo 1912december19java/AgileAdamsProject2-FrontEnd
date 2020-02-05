@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AssociateService } from '../associate.service';
 
 @Component({
   selector: 'app-logout-component',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoutComponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private Service: AssociateService) { }
 
   ngOnInit() {
+  }
+
+  logout(){
+    this.Service.logOut();
   }
 
 }

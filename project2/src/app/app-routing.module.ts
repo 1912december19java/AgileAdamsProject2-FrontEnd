@@ -6,10 +6,13 @@ import { LoginComponent } from './login/login.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { AddWordComponent } from './add-word/add-word.component';
+import { TrainersListComponent } from './trainers-list/trainers-list.component';
+import { TrainerTableComponent } from './trainer-table/trainer-table.component';
+import { TrainerHomepageComponent } from './trainer-homepage/trainer-homepage.component';
 
 
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'logout',
     component: LogoutComponentComponent,
@@ -37,13 +40,22 @@ const routes: Routes = [
   {
     path: 'addword',
     component: AddWordComponent,
-  }
+  },
+  {
+    path: 'trainers',
+    component: TrainersListComponent,
+  },
+  {
+    path: 'trainer-homepage',
 
+    component: TrainerHomepageComponent,
+  },
+  {
+    path:'trainertable',
+    component: TrainerTableComponent,
+  }
   
 ];
-
-
-
 
 
 @NgModule({

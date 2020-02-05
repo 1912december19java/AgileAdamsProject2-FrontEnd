@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
+import { ActivatedRoute } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-user-page',
@@ -13,7 +16,7 @@ export class UserPageComponent implements OnInit {
     lastName: "Doe"
   }
 
-  constructor() { }
+  constructor( ) { }
 
   ngOnInit() {
     this.getUserInfo()
