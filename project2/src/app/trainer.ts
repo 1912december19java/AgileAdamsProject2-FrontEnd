@@ -5,7 +5,6 @@ export class Trainer {
     lastName : string;
     location : string;
     curriculum : string;
-
     username: string;
     passcode: string;
     picture: File;
