@@ -12,9 +12,8 @@ export class AssociateService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-
+  //THESE WILL SAVE THE STATE OF YOUR LOGIN AND CAN BE USED IF YOU PASS THIS SERVICE THROUGH TO YOUR CONSTRUCTOR
   public isLoggedIn: boolean = false;
-  // public loggedInTrainer: Trainer = new Trainer('','');
   public loggedInUser: User = new User('','','','','');
   public loggedInTrainer: Trainer = new Trainer('','','','','','');
   public currentWordSet : any[];
