@@ -1,12 +1,14 @@
 export class Trainer {
 
+        
     firstName : string;
     lastName : string;
     location : string;
     curriculum : string;
 
     username: string;
-    password: string;
+    passcode: string;
+    picture: File;
     // constructor(tUser : string, tPass: string){
     //         this.username = tUser;
     //         this.password = tPass;
@@ -16,7 +18,7 @@ export class Trainer {
         this.firstName = fName;
         this.lastName = lName;
         this.username = tUser;
-        this.password = tPass;
+        this.passcode = tPass;
         this.location = tLoc;
         this.curriculum = tCurr;
     }

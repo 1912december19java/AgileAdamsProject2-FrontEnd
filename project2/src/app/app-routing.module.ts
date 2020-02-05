@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { AddWordComponent } from './add-word/add-word.component';
+import { TrainersListComponent } from './trainers-list/trainers-list.component';
 
 
 
@@ -37,13 +38,13 @@ const routes: Routes = [
   {
     path: 'addword',
     component: AddWordComponent,
+  },
+  {
+    path: 'trainers',
+    component: TrainersListComponent,
   }
-
   
 ];
-
-
-
 
 
 @NgModule({

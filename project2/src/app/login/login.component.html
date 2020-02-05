@@ -80,4 +80,17 @@
     </ul>
 </div>
 
+<div>
+    <ul *ngFor="let trainer of trainers">
+        <li (click)="convertPhotos()"> {{trainer.username}} {{trainer.lastName}} {{trainer.firstName}} <img src="data:image/png;base64,{{trainer.picture}}" height=50 width=50></li>        
+    </ul>
+</div>
+
+<div>
+    <ul *ngFor="let trainer of trainers">
+        <li (click)="convertPhotos()"> {{trainer.username}} {{trainer.lastName}} {{trainer.firstName}} <img src="{{imageConvert}}{{trainer.picture}}" height=50 width=50></li>        
+    </ul>
+</div>
+
+
 
