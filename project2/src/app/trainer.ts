@@ -1,4 +1,5 @@
 export class Trainer {
+
     firstName : string;
     lastName : string;
     location : string;
@@ -20,6 +21,7 @@ export class Trainer {
         this.curriculum = tCurr;
     }
     
+
     // constructor(newFirstName : string, newLastName : string, newLocation : string, newCurriculum : string,tUser : string, tPass: string){
     //     this.firstName = newFirstName;
     //     this.lastName = newLastName;
@@ -28,6 +30,7 @@ export class Trainer {
     //     this.username = tUser;
     //     this.password = tPass;
     // }
+
 }
 /*
 export const TRAINERS_LIST = [

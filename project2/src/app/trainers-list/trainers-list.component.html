@@ -1,12 +1,12 @@
 <div>
     <h1>Available Trainers: </h1>
     <div class="row">
-            <table class="comment_size">
-                <tr *ngFor = "let trainer of trainerArray">
-                    <td>
-                        <app-trainer-card [testFirstName]=trainer.firstName [testLastName]=trainer.lastName [testLocation]=trainer.location [testCurriculum]=trainer.curriculum></app-trainer-card>
-                    </td>
-                </tr>
-            </table>
+        <table class="comment_size">
+            <tr *ngFor = "let trainer of trainerArray">
+                <td>
+                    <app-trainer-card [testFirstName]=trainer.firstName [testLastName]=trainer.lastName [testLocation]=trainer.location [testCurriculum]=trainer.curriculum></app-trainer-card>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
