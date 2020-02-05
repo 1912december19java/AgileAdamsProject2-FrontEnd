@@ -84,4 +84,8 @@ export class AssociateService {
     return await this.http.get<CommentClass[]>(`http://localhost:8080/Project2/comments/byTrainer/${username}`).toPromise();
   }
   
+  async postNewComment(newComment : CommentClass){
+    let response = await this.http.post('http://localhost:8080/Project2/comments/', newComment);
+    console.log('CommentSent!');
+  }
 }
