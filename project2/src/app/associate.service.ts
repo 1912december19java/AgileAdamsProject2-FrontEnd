@@ -27,7 +27,11 @@ export class AssociateService {
     
   }
 
-  async getAllTrainerInfo(): Promise<Trainer[]> {
+  async promiseGetAllTrainers(): Promise<Trainer[]> {
+    return await this.http.get<Trainer[]>('http://localhost:8080/Project2/trainers/').toPromise();
+  }
+
+  async getAllTrainerInfo() {
     console.log("getAllTrainerInfo()") 
     return await this.http.get<Trainer[]>("http://localhost:8080/Project2/trainers")
     .toPromise();

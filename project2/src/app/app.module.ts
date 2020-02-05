@@ -26,6 +26,8 @@ import { AddWordComponent } from './add-word/add-word.component';
 import { TestComponent } from './test/test.component';
 import { TrainerApprovalCommentComponent } from './trainer-approval-comment/trainer-approval-comment.component';
 import { TrainerApprovalPageComponent } from './trainer-approval-page/trainer-approval-page.component';
+import { TrainerTableComponent } from './trainer-table/trainer-table.component';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { TrainerApprovalPageComponent } from './trainer-approval-page/trainer-ap
     TestComponent,
     TrainerApprovalCommentComponent,
     TrainerApprovalPageComponent,
+    TrainerTableComponent,
   ],
   imports: [
     BrowserModule,

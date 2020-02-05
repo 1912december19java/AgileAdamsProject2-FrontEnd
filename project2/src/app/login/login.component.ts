@@ -17,6 +17,10 @@ export class LoginComponent implements OnInit {
   users: User[] = [];
   trainers: Trainer[] = [];
 
+  trainers: Trainer[] = [];
+
+  imageConvert: string = "data:image/png;base64,";
+
   constructor(private service: AssociateService,) { }
 
   ngOnInit() {
@@ -41,6 +45,10 @@ export class LoginComponent implements OnInit {
   async populateTrainers(){
     this.trainers = await this.service.getAllTrainerInfo();
     console.log(this.trainers);
+  }
+
+  async populateTrainers() {
+    this.trainers = await this.userService.promiseGetAllTrainers();
   }
 
 
