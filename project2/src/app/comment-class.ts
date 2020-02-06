@@ -1,13 +1,19 @@
+import { User } from './user';
+import { Trainer } from './trainer';
+
 export class CommentClass {
 
-    posterName : string;
-    text : string;
-    postDate: string;
+    trainerUser : Trainer;
+    userUser : User;
+    commentText : string;
+    datePosted: string;
+    approval: string;
 
-    constructor(newName : string, newText : string, newDate : string){
-        this.posterName = newName;
-        this.text = newText;
-        this.postDate = newDate;
+    constructor(newText : string, newDate : string, newApproval : string){
+
+        this.commentText = newText;
+        this.datePosted = newDate;
+        this.approval = newApproval;
     }
 
 }

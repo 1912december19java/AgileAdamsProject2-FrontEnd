@@ -1,0 +1,30 @@
+
+
+<form>
+  <div class="form-group form-inline">
+      Search Trainer: <input class="form-control ml-2" type="text" [formControl]="filter"/>
+  </div>
+</form>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Photo</th>
+    <th scope="col">Last Name</th>
+    <th scope="col">First Name</th>
+    <th scope="col">Location</th>
+    <th scope="col">Curriculum</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let trainer of trainers$ | async; index as i" (click)="goToTrainerPage($event, trainer)">
+    <th scope="row">{{i + 1}}</th>
+    <td><span *ngIf = 'trainer.picture'><img src="data:image/png;base64,{{trainer.picture}}" width="50" height="50"></span></td>
+    <td><ngb-highlight [result]="trainer.lastName" [term]="filter.value"></ngb-highlight></td>
+    <td><ngb-highlight [result]="trainer.firstName" [term]="filter.value"></ngb-highlight></td>
+    <td><ngb-highlight [result]="trainer.location" [term]="filter.value"></ngb-highlight></td>
+    <td><ngb-highlight [result]="trainer.curriculum" [term]="filter.value"></ngb-highlight></td>
+  </tr>
+  </tbody>
+</table>
