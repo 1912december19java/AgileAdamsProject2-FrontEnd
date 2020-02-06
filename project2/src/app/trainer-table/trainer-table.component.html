@@ -18,7 +18,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let trainer of trainers$ | async; index as i">
+  <tr *ngFor="let trainer of trainers$ | async; index as i" (click)="goToTrainerPage($event, trainer)">
     <th scope="row">{{i + 1}}</th>
     <td><span *ngIf = 'trainer.picture'><img src="data:image/png;base64,{{trainer.picture}}" width="50" height="50"></span></td>
     <td><ngb-highlight [result]="trainer.lastName" [term]="filter.value"></ngb-highlight></td>

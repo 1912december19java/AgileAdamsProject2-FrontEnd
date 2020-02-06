@@ -4,6 +4,8 @@ import { Trainer} from '../trainer';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import { AssociateService } from '../associate.service';
+import {Router} from '@angular/router';
+import { User } from '../user';
 
 @Component({
   selector: 'app-trainer-table',
@@ -17,13 +19,15 @@ export class TrainerTableComponent {
   tempNumber: number = 10;
   photoConvert : string = "data:image/png;base64,";
 
-  constructor(public userService: AssociateService) {
-  
+  user: User = this.userService.loggedInUser;
+
+  constructor(public userService: AssociateService, private router: Router) {  
 
   }
 
   ngOnInit() {
     this.populateTrainers();
+       
   }
 
   async populateTrainers() {
@@ -43,6 +47,11 @@ export class TrainerTableComponent {
         || trainer.location.toLowerCase().includes(term)
         || trainer.curriculum.toLowerCase().includes(term);
     });
+  }
+
+  goToTrainerPage(event, trainer : Trainer): void{
+    this.userService.setSelectedTrainer(trainer);
+    this.router.navigate(['/trainer-homepage']);
   }
 
 }

@@ -16,8 +16,14 @@ export class TrainerHomepageComponent implements OnInit {
   ngOnInit() {
   }
 
-  adWord(){    
+  adWord(){
+    alert('your word has been added');  
     this.service.addWord(this.word.word);
+    this.resetWordForm();
+  }
+
+  resetWordForm() {
+    this.word.word = '';
   }
 
 }

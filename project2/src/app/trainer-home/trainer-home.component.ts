@@ -14,7 +14,7 @@ export class TrainerHomeComponent implements OnInit {
   trainer: Trainer;
 
   ngOnInit() {
-    this.trainer = this.service.loggedInTrainer;
+    this.trainer = this.service.targetTrainer;
   }
 
 
