@@ -9,6 +9,8 @@ import { AddWordComponent } from './add-word/add-word.component';
 import { TrainersListComponent } from './trainers-list/trainers-list.component';
 import { TrainerTableComponent } from './trainer-table/trainer-table.component';
 import { TrainerHomepageComponent } from './trainer-homepage/trainer-homepage.component';
+import { TrainerApprovalPageComponent } from './trainer-approval-page/trainer-approval-page.component';
+import { TrainerApprovalCommentComponent } from './trainer-approval-comment/trainer-approval-comment.component';
 
 
 
@@ -53,6 +55,10 @@ export const routes: Routes = [
   {
     path:'trainertable',
     component: TrainerTableComponent,
+  },
+  {
+    path: 'trainerapprovalpage',
+    component: TrainerApprovalCommentComponent
   }
   
 ];

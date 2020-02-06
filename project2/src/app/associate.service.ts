@@ -15,7 +15,9 @@ export class AssociateService {
   constructor(private http: HttpClient, private router: Router) { }
 
   //THESE WILL SAVE THE STATE OF YOUR LOGIN AND CAN BE USED IF YOU PASS THIS SERVICE THROUGH TO YOUR CONSTRUCTOR
-  public isLoggedIn: boolean = false;
+  public isTrainerLoggedIn: boolean = false;
+  public isUserLoggedIn: boolean = false;
+  // public isLoggedIn: boolean = false;
   public loggedInUser: User = new User('','','','',null);
   public loggedInTrainer: Trainer = new Trainer('','','','','','',null);
   public currentWordSet : any[];
@@ -46,12 +48,12 @@ export class AssociateService {
     this.http.get(`http://13.59.142.116:8085/project2/associates/${username}`)
         .subscribe((response: boolean)=>{
           if(response) {
-            this.isLoggedIn = true;
+            this.isUserLoggedIn = true;
             this.loggedInUser = loggingInAsUser;
             console.log(this.loggedInUser)
             this.router.navigate(['userpage'])
           } else {
-            this.isLoggedIn = false;
+            this.isUserLoggedIn = false;
             this.loggedInUser = new User('','','','',null);
           }
         });
@@ -62,13 +64,13 @@ export class AssociateService {
     this.http.get(`http://13.59.142.116:8085/project2/trainers/${loggingInAsTrainer.username}`)
     .subscribe((response: boolean)=>{
       if(response) {
-        this.isLoggedIn = true;
+        this.isTrainerLoggedIn = true;
         this.loggedInTrainer = loggingInAsTrainer;
         this.targetTrainer = loggingInAsTrainer;
         console.log(this.loggedInTrainer)
         this.router.navigate(['trainer-homepage'])
       } else {
-        this.isLoggedIn = false;
+        this.isTrainerLoggedIn = false;
         this.loggedInTrainer = new Trainer('','','','','','',null);
       }
     });
@@ -84,24 +86,11 @@ export class AssociateService {
       console.log("test");
     })
    }
-
-   attemptLogIn(username: string, password: string, location: string, curriculum: string) {
-    const loggingInAsTrainer = new Trainer(username, password, location, curriculum);
-    this.http.post('http://13.59.142.116:8085/project2/trainers/login', loggingInAsTrainer)
-        .subscribe((response: boolean)=>{
-          if(response) {
-            this.isLoggedIn = true;
-            this.loggedInTrainer = loggingInAsTrainer;
-            console.log(this.loggedInTrainer)
-            this.router.navigate(['trainer-homepage'])
-          } else {
-            this.isLoggedIn = false;
-            this.loggedInTrainer = new Trainer('','','','','','');
-          }
-        });
-  }
+  
   logOut() {
-    this.isLoggedIn = false;
+    // this.isLoggedIn = false;
+    this.isTrainerLoggedIn = false;
+    this.isUserLoggedIn = false;
     this.loggedInUser = new User('','','','',null);
     this.loggedInTrainer = new Trainer('','','','','','',null);
     this.targetTrainer = new Trainer('','','','','','',null);
