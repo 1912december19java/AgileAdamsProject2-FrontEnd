@@ -16,9 +16,10 @@ export class TrainerApprovalPageComponent implements OnInit {
   ngOnInit() {
     this.populatePendingComments();
   }
+  
 
-  addNewComment(newName : string, newText : string, newDate : string){
-    this.commentArray.push(new CommentClass(newName, newText, newDate));
+  addNewComment(id: number, newName : string, newText : string, newDate : string){
+    this.commentArray.push(new CommentClass(id, newName, newText, newDate));
   }
 
   async populatePendingComments(){
@@ -30,6 +31,7 @@ export class TrainerApprovalPageComponent implements OnInit {
         this.commentArray.push(comment);
       }
     }
+    console.log("These are the comments from trainer-approval-page: " + this.commentArray);
 
   }
 }
