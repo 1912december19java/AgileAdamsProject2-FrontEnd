@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AssociateService } from '../associate.service';
+import { Trainer } from '../trainer';
 
 @Component({
   selector: 'app-trainer-home',
@@ -7,13 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainerHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: AssociateService) { }
+
+  trainer: Trainer;
 
   ngOnInit() {
+    this.trainer = this.service.loggedInTrainer;
   }
 
-  trainer : string = 'trainer';
-  location : string ='location';
-  curriculum : string = 'curriculum';
 
 }

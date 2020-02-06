@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   processTrainerLogin(event, trainer: Trainer): void {
     console.log("processTrainerLogin()")
-    this.service.attemptLogInAsTrainer(trainer.username, trainer.passcode, trainer.firstName, trainer.lastName, trainer.location, trainer.curriculum);
+    this.service.attemptLogInAsTrainer(trainer.username, trainer.passcode, trainer.firstName, trainer.lastName, trainer.location, trainer.curriculum, trainer.picture);
   }
 
   async populateUsers() {
