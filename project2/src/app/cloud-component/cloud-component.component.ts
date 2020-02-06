@@ -33,11 +33,12 @@ export class CloudComponentComponent implements OnInit {
 
   ];
 
-  logClicked( event: any){
-    console.log("You clicked the thing");
-  }
-
   constructor(private httpService : AssociateService) { }
+
+  logClicked( event: any){
+    console.log(event);
+    this.httpService.addWord(event.text);
+  }
 
   ngOnInit() {
     this.gatherWords();
