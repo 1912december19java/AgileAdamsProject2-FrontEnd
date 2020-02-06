@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
+import { AssociateService } from '../associate.service';
 
 @Component({
   selector: 'app-trainer-approval-comment',
@@ -19,7 +20,7 @@ export class TrainerApprovalCommentComponent implements OnInit {
   status : string = "pending";
 
 
-  constructor() { }
+  constructor(private associateService : AssociateService) { }
 
   ngOnInit() {
 
@@ -28,6 +29,8 @@ export class TrainerApprovalCommentComponent implements OnInit {
   approve(){
     console.log("APPROVED");
     this.status = "approved";
+    this.associateService.updateComment('Hello from VS', '02-02-2020', 'approved');
+    
   }
 
   delete(){

@@ -26,6 +26,7 @@ export class AssociateService {
 
   public targetTrainer : Trainer = new Trainer('','','','','','',null);
   public word: Word = new Word(this.targetTrainer, this.loggedInUser,'');
+  public comment : CommentClass = new CommentClass('','','');
 
 
   async promiseGetAllUsers(): Promise<User[]> {
@@ -64,7 +65,7 @@ export class AssociateService {
   attemptLogInAsTrainer(username: string, password: string, firstName: string, lastName: string, location: string, curriculum: string, picture: File) {
     const loggingInAsTrainer = new Trainer(username, password, firstName, lastName, location, curriculum, picture);
     console.log("attemptLogInAsTrainer()" + loggingInAsTrainer.username)
-    this.http.get(`${this.URI}/project2/trainers/${loggingInAsTrainer.username}`)
+    this.http.get(`${this.URI}/trainers/${loggingInAsTrainer.username}`)
     .subscribe((response: boolean)=>{
       if(response) {
         this.isTrainerLoggedIn = true;
@@ -122,5 +123,17 @@ export class AssociateService {
     this.targetTrainer.location = trainer.location;
     this.targetTrainer.curriculum = trainer.curriculum;
     this.targetTrainer.username = trainer.username;
+  }
+
+  updateComment (text: string, date:string, approval : string){
+    const comment = new CommentClass(text,date,approval);
+    this.http.put("http://localhost:8080/Project2/comments/${username}", comment)
+    .subscribe((response: CommentClass[])=>{
+      this.comment.commentText = text;
+      this.comment.datePosted = date;
+      this.comment.approval = approval;
+      console.log(response);
+    });
+
   }
 }
