@@ -5,6 +5,6 @@
     <button><app-logout-component></app-logout-component></button>
     <button class="nav-item nav-link" *ngIf="isUserLoggedIn" (click)="goToUserHomepage()">User Homepage</button>
     <button class="nav-item nav-link" *ngIf="isTrainerLoggedIn" (click)="goToTrainerHomepage()">Trainer Homepage</button>
-    <button class="nav-item nav-link " *ngIf="isTrainerLoggedIn" (click)="goToPendingCommentsPage()">Pending Comments<span class="badge" (load)="populatePendingComments">{{commentArray.length}}</span></button>
+    <button class="nav-item nav-link " *ngIf="isTrainerLoggedIn" (click)="goToPendingCommentsPage()">Pending Comments<span *ngIf="isTrainerLoggedIn" class="badge">{{commentArray.length}}</span></button>
     
 </nav>
