@@ -13,8 +13,8 @@ import { Trainer } from '../trainer';
 export class AddCommentComponent implements OnInit {
 
   comment = {
-    trainer_username: 'aking',
-    user_username: 'dking',
+    trainer_username: this.httpService.targetTrainer,
+    user_username: this.httpService.loggedInUser,
     date_posted: Date.now(),
     comment_text: ""
   };
@@ -39,16 +39,16 @@ export class AddCommentComponent implements OnInit {
   }
 
   sendComment(){
-    this.comment.trainer_username = 'aking';
-    this.comment.user_username = 'dking';
+    this.comment.trainer_username = this.httpService.targetTrainer;
+    this.comment.user_username = this.httpService.loggedInUser;
     this.comment.date_posted = Date.now();
 
     let newComment = new CommentClass(this.comment.comment_text, (this.comment.date_posted).toString(), 'pending');
     newComment.userUser = new User();
     newComment.trainerUser = new Trainer();
 
-    newComment.userUser.username = 'dking';
-    newComment.trainerUser.username = 'aking';
+    newComment.userUser.username = this.httpService.targetTrainer.username;
+    newComment.trainerUser.username = this.httpService.loggedInUser.username;
 
     this.httpService.postNewComment(newComment).subscribe();
   }

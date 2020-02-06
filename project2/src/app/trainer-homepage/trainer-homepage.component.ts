@@ -9,7 +9,7 @@ import { AssociateService } from '../associate.service';
 })
 export class TrainerHomepageComponent implements OnInit {
 
-  word: Word = new Word('');
+  word: Word = new Word(this.service, '');
 
   constructor(public service : AssociateService) { }
 
