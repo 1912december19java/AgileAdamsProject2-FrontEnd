@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { AssociateService } from '../associate.service';
+import { CommentClass } from '../comment-class';
 
 @Component({
   selector: 'app-trainer-approval-comment',
@@ -17,6 +18,9 @@ export class TrainerApprovalCommentComponent implements OnInit {
   @Input()
   testDate : string = "1/1/1";
 
+  @Input()
+  dataComment : CommentClass;
+
   status : string = "pending";
 
 
@@ -29,13 +33,16 @@ export class TrainerApprovalCommentComponent implements OnInit {
   approve(){
     console.log("APPROVED");
     this.status = "approved";
-    this.associateService.updateComment('Hello from VS', '02-02-2020', 'approved');
-    
+    this.dataComment.approval = "approved"
+    console.log(this.dataComment);
+    // this.associateService.updateComment(commentArray.trainerUser, commentArray.userUser, commentArray.commentText, commentArray.datePosted, commentArray.approval);
+    this.associateService.updateComment( this.dataComment);
   }
 
   delete(){
-    console.log("DELETED");
+    console.log("From trainer-approval-comment: " + this.dataComment.commentText);
     this.status = "deleted";
+    this.associateService.deleteComment(this.dataComment)
   }
 
 }

@@ -26,7 +26,7 @@ export class AssociateService {
 
   public targetTrainer : Trainer = new Trainer('','','','','','',null);
   public word: Word = new Word(this.targetTrainer, this.loggedInUser,'');
-  public comment : CommentClass = new CommentClass('','','');
+  public comment : CommentClass = new CommentClass(null,'','','');
 
 
   async promiseGetAllUsers(): Promise<User[]> {
@@ -125,15 +125,16 @@ export class AssociateService {
     this.targetTrainer.username = trainer.username;
   }
 
-  updateComment (text: string, date:string, approval : string){
-    const comment = new CommentClass(text,date,approval);
-    this.http.put("http://localhost:8080/Project2/comments/${username}", comment)
+  updateComment (comment : CommentClass){
+    this.http.put(`http://localhost:8080/Project2/comments/${this.targetTrainer.username}`, comment)
     .subscribe((response: CommentClass[])=>{
-      this.comment.commentText = text;
-      this.comment.datePosted = date;
-      this.comment.approval = approval;
       console.log(response);
     });
 
+  }
+  deleteComment (comment : CommentClass){
+    console.log("From associateService: " + comment.id)
+    this.http.delete(`http://localhost:8080/Project2/comments/${comment.id}`).subscribe();
+    
   }
 }
