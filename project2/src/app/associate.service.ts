@@ -18,35 +18,37 @@ export class AssociateService {
   public isTrainerLoggedIn: boolean = false;
   public isUserLoggedIn: boolean = false;
   // public isLoggedIn: boolean = false;
+  public URI : string = 'http://13.59.142.116:8085/project2';
+  //public URI : string = 'http://localhost:8080/Project2';
   public loggedInUser: User = new User('','','','',null);
   public loggedInTrainer: Trainer = new Trainer('','','','','','',null);
   public currentWordSet : any[];
 
   public targetTrainer : Trainer = new Trainer('','','','','','',null);
-  public word: Word = new Word(this,'');
+  public word: Word = new Word(this.targetTrainer, this.loggedInUser,'');
 
 
   async promiseGetAllUsers(): Promise<User[]> {
     console.log("promiseGetAllUsers()")
-    return await this.http.get<User[]>('http://13.59.142.116:8085/project2/associates/')
+    return await this.http.get<User[]>(`${this.URI}/associates/`)
     .toPromise();
     
   }
 
   async promiseGetAllTrainers(): Promise<Trainer[]> {
-    return await this.http.get<Trainer[]>('http://13.59.142.116:8085/project2/trainers/').toPromise();
+    return await this.http.get<Trainer[]>(`${this.URI}/trainers/`).toPromise();
   }
 
   async getAllTrainerInfo() {
     console.log("getAllTrainerInfo()") 
-    return await this.http.get<Trainer[]>("http://13.59.142.116:8085/project2/trainers")
+    return await this.http.get<Trainer[]>(`${this.URI}/trainers`)
     .toPromise();
    }
 
    attemptLogInAsUser(username: string, passcode: string, firstName: string, lastName: string, picture: File) {
     const loggingInAsUser = new User(username, passcode, firstName, lastName, picture);
     console.log(loggingInAsUser.username);
-    this.http.get(`http://13.59.142.116:8085/project2/associates/${username}`)
+    this.http.get(`${this.URI}/associates/${username}`)
         .subscribe((response: boolean)=>{
           if(response) {
             this.isUserLoggedIn = true;
@@ -62,7 +64,7 @@ export class AssociateService {
   attemptLogInAsTrainer(username: string, password: string, firstName: string, lastName: string, location: string, curriculum: string, picture: File) {
     const loggingInAsTrainer = new Trainer(username, password, firstName, lastName, location, curriculum, picture);
     console.log("attemptLogInAsTrainer()" + loggingInAsTrainer.username)
-    this.http.get(`http://13.59.142.116:8085/project2/trainers/${loggingInAsTrainer.username}`)
+    this.http.get(`${this.URI}/project2/trainers/${loggingInAsTrainer.username}`)
     .subscribe((response: boolean)=>{
       if(response) {
         this.isTrainerLoggedIn = true;
@@ -79,8 +81,8 @@ export class AssociateService {
 
    addWord(word : string) {
     console.log("addWord()") 
-    const words = new Word(this,word);
-    this.http.post("http://13.59.142.116:8085/project2/words/addWord", words)
+    const words = new Word(this.targetTrainer,this.loggedInUser,word);
+    this.http.post(`${this.URI}/words/addWord`, words)
     .subscribe((response: Word[])=>{
       this.word = words;
       console.log(response);
@@ -100,16 +102,16 @@ export class AssociateService {
 
   async getWordsByTrainer() : Promise<any[]>{
     console.log(this.targetTrainer.username);
-    return await this.http.get<any[]>(`http://13.59.142.116:8085/project2/words/trainer/wCount/${this.targetTrainer.username}`).toPromise(); 
+    return await this.http.get<any[]>(`${this.URI}/words/trainer/wCount/${this.targetTrainer.username}`).toPromise(); 
   }
 
   async getCommentsByTrainer(username : string) : Promise<CommentClass[]>{
     console.log(this.targetTrainer.username);
-    return await this.http.get<CommentClass[]>(`http://13.59.142.116:8085/project2/comments/byTrainer/${this.targetTrainer.username}`).toPromise();
+    return await this.http.get<CommentClass[]>(`${this.URI}/comments/byTrainer/${this.targetTrainer.username}`).toPromise();
   }
   
   postNewComment(newComment : CommentClass) : Observable<CommentClass>{
-    return this.http.post<CommentClass>('http://13.59.142.116:8085/project2/comments/addComment', newComment);
+    return this.http.post<CommentClass>(`${this.URI}/comments/addComment`, newComment);
   }
 
   setSelectedTrainer(trainer : Trainer) : void{
