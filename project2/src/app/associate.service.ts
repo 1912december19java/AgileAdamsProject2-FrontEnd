@@ -64,7 +64,7 @@ export class AssociateService {
   attemptLogInAsTrainer(username: string, password: string, firstName: string, lastName: string, location: string, curriculum: string, picture: File) {
     const loggingInAsTrainer = new Trainer(username, password, firstName, lastName, location, curriculum, picture);
     console.log("attemptLogInAsTrainer()" + loggingInAsTrainer.username)
-    this.http.get(`${this.URI}/project2/trainers/${loggingInAsTrainer.username}`)
+    this.http.get(`${this.URI}/trainers/${loggingInAsTrainer.username}`)
     .subscribe((response: boolean)=>{
       if(response) {
         this.isTrainerLoggedIn = true;
