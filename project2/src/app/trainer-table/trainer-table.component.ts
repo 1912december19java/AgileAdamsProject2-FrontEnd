@@ -49,7 +49,8 @@ export class TrainerTableComponent {
     });
   }
 
-  goToTrainerPage(): void{
+  goToTrainerPage(event, trainer : Trainer): void{
+    this.userService.setSelectedTrainer(trainer);
     this.router.navigate(['/trainer-homepage']);
   }
 

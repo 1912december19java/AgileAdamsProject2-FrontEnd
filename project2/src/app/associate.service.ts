@@ -20,6 +20,7 @@ export class AssociateService {
   public loggedInTrainer: Trainer = new Trainer('','','','','','',null);
   public currentWordSet : any[];
   public word: Word = new Word('');
+  public targetTrainer : Trainer = new Trainer('','','','','','',null);
 
 
   async promiseGetAllUsers(): Promise<User[]> {
@@ -63,6 +64,7 @@ export class AssociateService {
       if(response) {
         this.isLoggedIn = true;
         this.loggedInTrainer = loggingInAsTrainer;
+        this.targetTrainer = loggingInAsTrainer;
         console.log(this.loggedInTrainer)
         this.router.navigate(['trainer-homepage'])
       } else {
@@ -115,5 +117,15 @@ export class AssociateService {
   
   postNewComment(newComment : CommentClass) : Observable<CommentClass>{
     return this.http.post<CommentClass>('http://localhost:8080/Project2/comments/addComment', newComment);
+  }
+
+  setSelectedTrainer(trainer : Trainer) : void{
+    this.targetTrainer.firstName = trainer.firstName;
+    this.targetTrainer.lastName = trainer.lastName;
+    this.targetTrainer.passcode = trainer.passcode;
+    this.targetTrainer.picture = trainer.picture;
+    this.targetTrainer.location = trainer.location;
+    this.targetTrainer.curriculum = trainer.curriculum;
+    this.targetTrainer.username = trainer.username;
   }
 }
