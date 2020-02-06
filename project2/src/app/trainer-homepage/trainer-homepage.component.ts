@@ -11,7 +11,7 @@ import { CloudData } from 'angular-tag-cloud-module';
 export class TrainerHomepageComponent implements OnInit {
 
   word: Word = new Word(this.service.targetTrainer, this.service.loggedInUser, '');
-
+  isUserLoggedIn: boolean = false;
   data: CloudData[] =[];
 
   currentWords: any[];
@@ -20,7 +20,14 @@ export class TrainerHomepageComponent implements OnInit {
 
   ngOnInit() {
     this.gatherWords();
+    this.checkIfUserLoggedIn();
   }
+
+  checkIfUserLoggedIn(){
+    if(this.service.isUserLoggedIn){
+      this.isUserLoggedIn = true;
+    }
+  };
 
   async adWord(){
     //alert('your word has been added');  
