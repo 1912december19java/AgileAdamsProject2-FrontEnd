@@ -10,6 +10,7 @@ import { cursorTo } from 'readline';
   <div>
     <angular-tag-cloud
       [(data)]="data"
+      style="cursor: pointer"
       [zoomOnHover]="zoomOnHoverOptions"
       (clicked)="logClicked($event)"
       [width]="options.width"
@@ -37,7 +38,7 @@ export class CloudComponentComponent implements OnInit {
   };
 
   //Should be moved to a separate model component
-  data: CloudData[] = [
+  data: CloudData[] = [    
 
   ];
 
