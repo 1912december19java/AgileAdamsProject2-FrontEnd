@@ -45,7 +45,7 @@ export class CloudComponentComponent implements OnInit {
 
   async gatherWords(){
     //Hardcode Adam's username aking
-    this.currentWords = await this.httpService.getWordsByTrainer('aking');
+    this.currentWords = await this.httpService.getWordsByTrainer();
     const newData : CloudData[] = [];
     
 

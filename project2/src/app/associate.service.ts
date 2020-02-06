@@ -21,8 +21,9 @@ export class AssociateService {
   public loggedInUser: User = new User('','','','',null);
   public loggedInTrainer: Trainer = new Trainer('','','','','','',null);
   public currentWordSet : any[];
-  public word: Word = new Word('');
+
   public targetTrainer : Trainer = new Trainer('','','','','','',null);
+  public word: Word = new Word(this,'');
 
 
   async promiseGetAllUsers(): Promise<User[]> {
@@ -78,7 +79,7 @@ export class AssociateService {
 
    addWord(word : string) {
     console.log("addWord()") 
-    const words = new Word(word);
+    const words = new Word(this,word);
     this.http.post("http://13.59.142.116:8085/project2/words/addWord", words)
     .subscribe((response: Word[])=>{
       this.word = words;
@@ -97,12 +98,14 @@ export class AssociateService {
     this.router.navigate(['login'])
   }
 
-  async getWordsByTrainer(username : string) : Promise<any[]>{
-    return await this.http.get<any[]>(`http://13.59.142.116:8085/project2/words/trainer/wCount/${username}`).toPromise(); 
+  async getWordsByTrainer() : Promise<any[]>{
+    console.log(this.targetTrainer.username);
+    return await this.http.get<any[]>(`http://13.59.142.116:8085/project2/words/trainer/wCount/${this.targetTrainer.username}`).toPromise(); 
   }
 
   async getCommentsByTrainer(username : string) : Promise<CommentClass[]>{
-    return await this.http.get<CommentClass[]>(`http://13.59.142.116:8085/project2/comments/byTrainer/${username}`).toPromise();
+    console.log(this.targetTrainer.username);
+    return await this.http.get<CommentClass[]>(`http://13.59.142.116:8085/project2/comments/byTrainer/${this.targetTrainer.username}`).toPromise();
   }
   
   postNewComment(newComment : CommentClass) : Observable<CommentClass>{

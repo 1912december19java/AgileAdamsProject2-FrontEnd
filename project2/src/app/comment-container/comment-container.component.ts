@@ -22,7 +22,7 @@ export class CommentContainerComponent implements OnInit {
   }
 
   async populateResolvedComments(){
-    let tempComments = await this.httpService.getCommentsByTrainer('aking');
+    let tempComments = await this.httpService.getCommentsByTrainer(this.httpService.targetTrainer.username);
     for(let comment of tempComments){
       if(comment.approval !== 'pending'){
         this.commentArray.push(comment);
