@@ -8,7 +8,6 @@ export class CommentClass {
     commentText : string;
     datePosted: string;
     approval: string;
-    fullname : string = `${this.userUser.firstName} ${this.userUser.lastName}`;
 
     constructor(newText : string, newDate : string, newApproval : string){
 
