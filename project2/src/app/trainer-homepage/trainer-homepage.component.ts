@@ -18,11 +18,6 @@ export class TrainerHomepageComponent implements OnInit {
 
   constructor(public service : AssociateService) { }
 
-  data : CloudData[] = [
-
-  ];
-  currentWords : any[];
-
   ngOnInit() {
     this.gatherWords();
   }
