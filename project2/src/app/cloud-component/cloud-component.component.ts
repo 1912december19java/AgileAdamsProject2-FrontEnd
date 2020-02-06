@@ -45,15 +45,16 @@ export class CloudComponentComponent implements OnInit {
 
   constructor(private httpService : AssociateService) { }
 
-  logClicked( event: any){
+  async logClicked( event: any){
     console.log(event);
-    this.httpService.addWord(event.text);
+    let response = await this.httpService.addWord(event.text);
+    this.gatherWords();
   }
 
   ngOnInit() {
     //this.gatherWords();
   }
-/*
+
   async gatherWords(){
     //Hardcode Adam's username aking
     this.currentWords = await this.httpService.getWordsByTrainer();
@@ -61,7 +62,7 @@ export class CloudComponentComponent implements OnInit {
     
 
     for( let pair of this.currentWords){
-      console.log(`TEXT: ${pair[0]} | WEIGHT: ${pair[1]}`);
+      //console.log(`TEXT: ${pair[0]} | WEIGHT: ${pair[1]}`);
       newData.push(
         {text: pair[0], weight: pair[1]}
       );
@@ -69,6 +70,5 @@ export class CloudComponentComponent implements OnInit {
     this.data = newData;
     //console.log(await (await this.httpService.getWordsByTrainer('aking'))[0]);
   }
-  */
 
 }
