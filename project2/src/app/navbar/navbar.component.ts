@@ -45,15 +45,12 @@ export class NavbarComponent implements OnInit {
   };
 
   async populatePendingComments(){
-
     let tempComments = await this.httpService.getCommentsByTrainer(this.httpService.targetTrainer.username);
-
     for(let comment of tempComments){
       if (comment.approval === 'pending'){
         this.commentArray.push(comment);
       }
     }
-
   }
 
 }
