@@ -23,7 +23,7 @@ export class TrainerApprovalPageComponent implements OnInit {
 
   async populatePendingComments(){
 
-    let tempComments = await this.httpService.getCommentsByTrainer('aking');
+    let tempComments = await this.httpService.getCommentsByTrainer(this.httpService.targetTrainer.username);
 
     for(let comment of tempComments){
       if (comment.approval === 'pending'){
