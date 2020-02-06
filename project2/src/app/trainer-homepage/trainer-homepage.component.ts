@@ -42,7 +42,7 @@ export class TrainerHomepageComponent implements OnInit {
     
 
     for( let pair of this.currentWords){
-      //console.log(`TEXT: ${pair[0]} | WEIGHT: ${pair[1]}`);
+      console.log(`TEXT: ${pair[0]} | WEIGHT: ${pair[1]}`);
       newData.push(
         {text: pair[0], weight: pair[1]}
       );
