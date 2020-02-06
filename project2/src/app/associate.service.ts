@@ -104,6 +104,7 @@ export class AssociateService {
     this.isLoggedIn = false;
     this.loggedInUser = new User('','','','',null);
     this.loggedInTrainer = new Trainer('','','','','','',null);
+    this.targetTrainer = new Trainer('','','','','','',null);
     this.router.navigate(['login'])
   }
 
