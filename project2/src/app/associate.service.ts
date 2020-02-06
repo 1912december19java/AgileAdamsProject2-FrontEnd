@@ -122,7 +122,7 @@ export class AssociateService {
   }
 
   updateComment (comment : CommentClass){
-    this.http.put(`http://localhost:8080/Project2/comments/${this.targetTrainer.username}`, comment)
+    this.http.put(`${this.URI}/comments/${this.targetTrainer.username}`, comment)
     .subscribe((response: CommentClass[])=>{
       console.log(response);
     });
@@ -130,7 +130,7 @@ export class AssociateService {
   }
   deleteComment (comment : CommentClass){
     console.log("From associateService: " + comment.id)
-    this.http.delete(`http://localhost:8080/Project2/comments/${comment.id}`).subscribe();
+    this.http.delete(`${this.URI}/comments/${comment.id}`).subscribe();
     
   }
 }
