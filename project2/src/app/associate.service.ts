@@ -18,14 +18,14 @@ export class AssociateService {
   public isTrainerLoggedIn: boolean = false;
   public isUserLoggedIn: boolean = false;
   // public isLoggedIn: boolean = false;
-  //public URI : string = 'http://13.59.142.116:8085/project2';
-  public URI : string = 'http://localhost:8080/Project2';
+  public URI : string = 'http://13.59.142.116:8085/project2';
+  //public URI : string = 'http://localhost:8080/Project2';
   public loggedInUser: User = new User('','','','',null);
   public loggedInTrainer: Trainer = new Trainer('','','','','','',null);
   public currentWordSet : any[];
 
   public targetTrainer : Trainer = new Trainer('','','','','','',null);
-  public word: Word = new Word(this,'');
+  public word: Word = new Word(this.targetTrainer, this.loggedInUser,'');
 
 
   async promiseGetAllUsers(): Promise<User[]> {
@@ -81,8 +81,8 @@ export class AssociateService {
 
    addWord(word : string) {
     console.log("addWord()") 
-    const words = new Word(this,word);
-    this.http.post(`${this.URI}/project2/words/addWord`, words)
+    const words = new Word(this.targetTrainer,this.loggedInUser,word);
+    this.http.post(`${this.URI}/words/addWord`, words)
     .subscribe((response: Word[])=>{
       this.word = words;
       console.log(response);

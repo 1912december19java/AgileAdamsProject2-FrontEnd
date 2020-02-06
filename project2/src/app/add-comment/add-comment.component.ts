@@ -47,8 +47,8 @@ export class AddCommentComponent implements OnInit {
     newComment.userUser = new User();
     newComment.trainerUser = new Trainer();
 
-    newComment.userUser.username = this.httpService.targetTrainer.username;
-    newComment.trainerUser.username = this.httpService.loggedInUser.username;
+    newComment.userUser = this.httpService.loggedInUser;
+    newComment.trainerUser = this.httpService.targetTrainer;
 
     this.httpService.postNewComment(newComment).subscribe();
   }

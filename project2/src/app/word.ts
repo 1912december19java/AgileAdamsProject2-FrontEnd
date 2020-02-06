@@ -7,9 +7,9 @@ export class Word {
     public trainerUser = new Trainer('','','','','','');
     public userUser = new User();
 
-    constructor(private httpService : AssociateService, Word : String){
+    constructor(newTrainerUser : Trainer, newUserUser : User, Word : String){
         this.word = Word;
-        this.trainerUser.username = this.httpService.targetTrainer.username;
-        this.userUser.username = this.httpService.loggedInUser.username;
+        this.trainerUser = newTrainerUser;
+        this.userUser = newUserUser;
     }
 }
