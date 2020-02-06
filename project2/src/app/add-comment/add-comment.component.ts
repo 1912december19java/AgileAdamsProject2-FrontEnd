@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { AssociateService } from '../associate.service';
+import { CommentClass } from '../comment-class';
+import { User } from '../user';
+import { Trainer } from '../trainer';
 
 @Component({
   selector: 'app-add-comment',
@@ -24,6 +27,7 @@ export class AddCommentComponent implements OnInit {
   saveComment(): void {
     alert("Your Comment is being sent to the DB");
     // this.myService.saveComment(this.comment);
+    this.sendComment();
     this.resetCommentForm();
   }
 
@@ -38,7 +42,15 @@ export class AddCommentComponent implements OnInit {
     this.comment.trainer_username = 'aking';
     this.comment.user_username = 'dking';
     this.comment.date_posted = Date.now();
-    this.httpService.postNewComment(this.comment);
+
+    let newComment = new CommentClass(this.comment.comment_text, (this.comment.date_posted).toString(), 'pending');
+    newComment.userUser = new User();
+    newComment.trainerUser = new Trainer();
+
+    newComment.userUser.username = 'dking';
+    newComment.trainerUser.username = 'aking';
+
+    this.httpService.postNewComment(newComment).subscribe();
   }
 
 }
