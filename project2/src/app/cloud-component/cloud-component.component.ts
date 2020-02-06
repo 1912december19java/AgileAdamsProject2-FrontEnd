@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CloudData, CloudOptions, ZoomOnHoverOptions } from 'angular-tag-cloud-module';
 import { AssociateService } from '../associate.service';
-import { cursorTo } from 'readline';
+
 
 
 @Component({
