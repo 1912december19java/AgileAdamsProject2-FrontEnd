@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CloudData, CloudOptions } from 'angular-tag-cloud-module';
 import { AssociateService } from '../associate.service';
 
@@ -29,6 +29,7 @@ export class CloudComponentComponent implements OnInit {
   };
 
   //Should be moved to a separate model component
+  @Input()
   data: CloudData[] = [
 
   ];
@@ -40,9 +41,9 @@ export class CloudComponentComponent implements OnInit {
   constructor(private httpService : AssociateService) { }
 
   ngOnInit() {
-    this.gatherWords();
+    //this.gatherWords();
   }
-
+/*
   async gatherWords(){
     //Hardcode Adam's username aking
     this.currentWords = await this.httpService.getWordsByTrainer();
@@ -58,5 +59,6 @@ export class CloudComponentComponent implements OnInit {
     this.data = newData;
     //console.log(await (await this.httpService.getWordsByTrainer('aking'))[0]);
   }
+  */
 
 }

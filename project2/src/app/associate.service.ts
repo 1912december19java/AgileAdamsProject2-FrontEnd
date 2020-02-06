@@ -64,7 +64,7 @@ export class AssociateService {
   attemptLogInAsTrainer(username: string, password: string, firstName: string, lastName: string, location: string, curriculum: string, picture: File) {
     const loggingInAsTrainer = new Trainer(username, password, firstName, lastName, location, curriculum, picture);
     console.log("attemptLogInAsTrainer()" + loggingInAsTrainer.username)
-    this.http.get(`${this.URI}/project2/trainers/${loggingInAsTrainer.username}`)
+    this.http.get(`${this.URI}/trainers/${loggingInAsTrainer.username}`)
     .subscribe((response: boolean)=>{
       if(response) {
         this.isTrainerLoggedIn = true;
@@ -79,15 +79,11 @@ export class AssociateService {
     });
   }
 
-   addWord(word : string) {
-    console.log("addWord()") 
+  addWord(word : string) : Promise<object> {
+    console.log("addWord()") ;
     const words = new Word(this.targetTrainer,this.loggedInUser,word);
-    this.http.post(`${this.URI}/words/addWord`, words)
-    .subscribe((response: Word[])=>{
-      this.word = words;
-      console.log(response);
-      console.log("test");
-    })
+    return this.http.post(`${this.URI}/words/addWord`, words)
+        .toPromise();
    }
   
   logOut() {
