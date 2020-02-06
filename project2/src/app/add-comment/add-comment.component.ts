@@ -19,7 +19,8 @@ export class AddCommentComponent implements OnInit {
     trainer_username: this.httpService.targetTrainer,
     user_username: this.httpService.loggedInUser,
     date_posted: Date.now(),
-    comment_text: ""
+    comment_text: "",
+    id: 0
   };
 
   constructor(private httpService : AssociateService) { }
@@ -46,7 +47,7 @@ export class AddCommentComponent implements OnInit {
     this.comment.user_username = this.httpService.loggedInUser;
     this.comment.date_posted = Date.now();
 
-    let newComment = new CommentClass(this.comment.comment_text, (this.comment.date_posted).toString(), 'pending');
+    let newComment = new CommentClass(this.comment.id, this.comment.comment_text, (this.comment.date_posted).toString(), 'pending');
     newComment.userUser = new User();
     newComment.trainerUser = new Trainer();
 
