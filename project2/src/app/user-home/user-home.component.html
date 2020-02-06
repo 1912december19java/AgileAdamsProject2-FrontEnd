@@ -1,5 +1,8 @@
 <div>
-    <h1>{{user}}</h1>
-    <img src="assets/bobbyb.jpg" alt="image" class="image_size">
+    <h1>{{user.username}}</h1>
+    <!-- <img src="assets/bobbyb.jpg" alt="image" class="image_size"> -->
+    <img src="data:image/png;base64,{{user.picture}}" alt="image" class="image_size">
+    <div>{{user.firstName}}</div>
+    <div>{{user.lastName}}</div>
 </div>
 
