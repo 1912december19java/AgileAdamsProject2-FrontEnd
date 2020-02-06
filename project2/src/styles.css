@@ -31,6 +31,8 @@
 body {
     background-color : black;
     text-decoration-color: white;
+    color : white;
+    background-image: url('/../assets/stars.png');
 }
 
 .image_size {
@@ -79,10 +81,6 @@ body {
     padding : 3px;
     margin-top : 5px;
     margin-bottom : 10px;
-}
-
-body {
-    color: white;
 }
 
 .navbar_grey{
