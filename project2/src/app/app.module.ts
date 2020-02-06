@@ -27,7 +27,8 @@ import { TestComponent } from './test/test.component';
 import { TrainerApprovalCommentComponent } from './trainer-approval-comment/trainer-approval-comment.component';
 import { TrainerApprovalPageComponent } from './trainer-approval-page/trainer-approval-page.component';
 import { TrainerTableComponent } from './trainer-table/trainer-table.component';
-
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faCoffee, faComment } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [
@@ -60,8 +61,17 @@ import { TrainerTableComponent } from './trainer-table/trainer-table.component';
     HttpClientModule,
     FormsModule, 
     ReactiveFormsModule,
+    FontAwesomeModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+constructor(library: FaIconLibrary) {
+  // Add an icon to the library for convenient access in other components
+  library.addIcons(faCoffee);
+}
+
+}

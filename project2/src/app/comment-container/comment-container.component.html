@@ -1,7 +1,7 @@
 <div>
     <div class="row">
         <div class="comment_size white_panel">
-            <app-add-comment></app-add-comment>
+            <app-add-comment *ngIf="isUserLoggedIn"></app-add-comment>
         </div>
     </div>
     <div class="row">

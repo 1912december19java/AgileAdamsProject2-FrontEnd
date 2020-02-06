@@ -11,17 +11,23 @@ import { CloudData } from 'angular-tag-cloud-module';
 export class TrainerHomepageComponent implements OnInit {
 
   word: Word = new Word(this.service.targetTrainer, this.service.loggedInUser, '');
+  isUserLoggedIn: boolean = false;
+  data: CloudData[] =[];
+
+  currentWords: any[];
 
   constructor(public service : AssociateService) { }
 
-  data : CloudData[] = [
-
-  ];
-  currentWords : any[];
-
   ngOnInit() {
     this.gatherWords();
+    this.checkIfUserLoggedIn();
   }
+
+  checkIfUserLoggedIn(){
+    if(this.service.isUserLoggedIn){
+      this.isUserLoggedIn = true;
+    }
+  };
 
   async adWord(){
     //alert('your word has been added');  
@@ -43,7 +49,7 @@ export class TrainerHomepageComponent implements OnInit {
     
 
     for( let pair of this.currentWords){
-      //console.log(`TEXT: ${pair[0]} | WEIGHT: ${pair[1]}`);
+      console.log(`TEXT: ${pair[0]} | WEIGHT: ${pair[1]}`);
       newData.push(
         {text: pair[0], weight: pair[1]}
       );

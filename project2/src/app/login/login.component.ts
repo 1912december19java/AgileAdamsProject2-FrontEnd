@@ -6,6 +6,7 @@ import { stringify } from 'querystring';
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from '../app-routing.module'
 import {ActivatedRoute, Router, RouterModule, Routes} from '@angular/router';
+import { faStar, faUniversity, faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,10 @@ import {ActivatedRoute, Router, RouterModule, Routes} from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+
+  faStar = faStar;
+  faUniversity = faUniversity;
+  faUser = faUser;
 
   users: User[] = [];
   trainers: Trainer[] = [];

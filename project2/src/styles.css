@@ -19,6 +19,16 @@
     border-radius: 2px;
 }
 
+.transparent_panel {
+    background-color : rgb(27, 27, 27);
+    box-shadow: 0px 1px 1px black;
+    padding : 0px;
+    margin : 3px;
+    width : 40%;
+    height: 100%;
+    border-radius: 2px;
+}
+
 .left_panel {
     background-color : rgb(82, 82, 82);
     box-shadow: 0px 1px 1px black;
@@ -32,7 +42,8 @@ body {
     background-color : black;
     text-decoration-color: white;
     color : white;
-    background-image: url('/../assets/stars.png');
+    background-image: url('/../assets/Reston.jpg');
+    background-size : cover;
 }
 
 .image_size {
@@ -95,4 +106,8 @@ body {
 .text-container {
     margin : 1px;
     padding-left : 20px;
+}
+
+.awesome {
+    padding: 40px;
 }
