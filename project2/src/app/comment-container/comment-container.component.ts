@@ -30,6 +30,12 @@ export class CommentContainerComponent implements OnInit {
     }
   }
 
+  checkIfUserLoggedIn(){
+    if(this.httpService.isUserLoggedIn){
+      this.isUserLoggedIn = true;
+    }
+  };
+
   async populateResolvedComments(){
     let tempComments = await this.httpService.getCommentsByTrainer(this.httpService.targetTrainer.username);
     for(let comment of tempComments){
