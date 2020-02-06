@@ -4,6 +4,7 @@ import { AssociateService } from '../associate.service';
 import { CommentClass } from '../comment-class';
 import { User } from '../user';
 import { Trainer } from '../trainer';
+import { faComment} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-add-comment',
@@ -11,6 +12,8 @@ import { Trainer } from '../trainer';
   styleUrls: ['./add-comment.component.css']
 })
 export class AddCommentComponent implements OnInit {
+
+  faComment = faComment;
 
   comment = {
     trainer_username: this.httpService.targetTrainer,

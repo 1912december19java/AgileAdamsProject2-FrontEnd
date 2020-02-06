@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-add-word',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-word.component.css']
 })
 export class AddWordComponent implements OnInit {
+
+  faComment = faComment;
 
   word = {
     id: 1,
