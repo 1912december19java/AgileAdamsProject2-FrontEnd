@@ -13,10 +13,17 @@ export class TrainerHomepageComponent implements OnInit {
   word: Word = new Word(this.service.targetTrainer, this.service.loggedInUser, '');
   isUserLoggedIn: boolean = false;
   data: CloudData[] =[];
+  isUserLoggedIn = false;
 
   currentWords: any[];
 
   constructor(public service : AssociateService) { }
+
+  checkIfUserLoggedIn(){
+    if(this.service.isUserLoggedIn){
+      this.isUserLoggedIn = true;
+    }
+  }
 
   ngOnInit() {
     this.gatherWords();

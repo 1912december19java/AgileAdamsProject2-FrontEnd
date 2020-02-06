@@ -58,7 +58,7 @@ export const routes: Routes = [
   },
   {
     path: 'trainerapprovalpage',
-    component: TrainerApprovalCommentComponent
+    component: TrainerApprovalPageComponent
   }
   
 ];
