@@ -28,12 +28,6 @@ export class CommentContainerComponent implements OnInit {
     if(this.httpService.isUserLoggedIn){
       this.isUserLoggedIn = true;
     }
-  }
-
-  checkIfUserLoggedIn(){
-    if(this.httpService.isUserLoggedIn){
-      this.isUserLoggedIn = true;
-    }
   };
 
   async populateResolvedComments(){
