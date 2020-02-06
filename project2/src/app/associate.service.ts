@@ -16,7 +16,7 @@ export class AssociateService {
   //THESE WILL SAVE THE STATE OF YOUR LOGIN AND CAN BE USED IF YOU PASS THIS SERVICE THROUGH TO YOUR CONSTRUCTOR
   public isLoggedIn: boolean = false;
   public loggedInUser: User = new User('','','','',null);
-  public loggedInTrainer: Trainer = new Trainer('','','','','','');
+  public loggedInTrainer: Trainer = new Trainer('','','','','','',null);
   public currentWordSet : any[];
   public word: Word = new Word('');
 
@@ -54,8 +54,8 @@ export class AssociateService {
           }
         });
   }
-  attemptLogInAsTrainer(username: string, password: string, firstName: string, lastName: string, location: string, curriculum: string) {
-    const loggingInAsTrainer = new Trainer(username, password, firstName, lastName, location, curriculum);
+  attemptLogInAsTrainer(username: string, password: string, firstName: string, lastName: string, location: string, curriculum: string, picture: File) {
+    const loggingInAsTrainer = new Trainer(username, password, firstName, lastName, location, curriculum, picture);
     console.log("attemptLogInAsTrainer()" + loggingInAsTrainer.username)
     this.http.get(`http://localhost:8080/Project2/trainers/${loggingInAsTrainer.username}`)
     .subscribe((response: boolean)=>{
@@ -66,7 +66,7 @@ export class AssociateService {
         this.router.navigate(['trainer-homepage'])
       } else {
         this.isLoggedIn = false;
-        this.loggedInTrainer = new Trainer('','','','','','');
+        this.loggedInTrainer = new Trainer('','','','','','',null);
       }
     });
   }
@@ -100,7 +100,7 @@ export class AssociateService {
   logOut() {
     this.isLoggedIn = false;
     this.loggedInUser = new User('','','','',null);
-    this.loggedInTrainer = new Trainer('','','','','','');
+    this.loggedInTrainer = new Trainer('','','','','','',null);
     this.router.navigate(['login'])
   }
 
