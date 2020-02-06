@@ -1,0 +1,8 @@
+.nave-item, .badge {
+    position: absolute;
+    padding: 2px 5px;
+    border-radius: 80%;
+    background: red;
+    color: white;
+  }
+
