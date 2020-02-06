@@ -12,6 +12,10 @@ export class TrainerHomepageComponent implements OnInit {
 
   word: Word = new Word(this.service.targetTrainer, this.service.loggedInUser, '');
 
+  data: CloudData[] =[];
+
+  currentWords: any[];
+
   constructor(public service : AssociateService) { }
 
   data : CloudData[] = [
