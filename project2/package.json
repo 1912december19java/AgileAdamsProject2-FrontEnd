@@ -26,7 +26,7 @@
     "angular-tag-cloud-module": "^3.8.1",
     "angular7-word-cloud": "^1.2.1",
     "bootstrap": "^4.4.1",
-    "d3": "^5.15.0",
+    "d3": "^7.6.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
